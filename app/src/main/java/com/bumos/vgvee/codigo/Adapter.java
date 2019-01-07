@@ -16,21 +16,22 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements Filterable {
+public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+//    public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements Filterable {
     ArrayList<Data> arrayList;
     ArrayList<Data> arrayListFull;
-    Context cxt;
+    Context context;
 
-    public Adapter(ArrayList<Data> arrayList, Context cxt) {
+    public Adapter(ArrayList<Data> arrayList, Context context) {
         this.arrayList = arrayList;
         arrayListFull = new ArrayList<>(arrayList);
-        this.cxt = cxt;
+        this.context = context;
     }
 
     @NonNull
     @Override
     public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        LayoutInflater li =LayoutInflater.from(cxt);
+        LayoutInflater li =LayoutInflater.from(context);
         View view = li.inflate(R.layout.list_item,viewGroup,false);
         ViewHolder viewHolder=new ViewHolder(view);
         return viewHolder;
@@ -48,44 +49,44 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
             @Override
             public void onClick(View v) {
                 if(d.getName()=="TextView"){
-                   Intent intent= new Intent(cxt,TextViewActivity.class);
+                   Intent intent= new Intent(context,TextViewActivity.class);
                    intent.putExtra("textview",d);
-                   cxt.startActivity(intent);
+                   context.startActivity(intent);
                 }
                 else if(d.getName()=="Button"){
-                    Intent intent= new Intent(cxt,ButtonActivity.class);
+                    Intent intent= new Intent(context,ButtonActivity.class);
                     intent.putExtra("button",d);
-                    cxt.startActivity(intent);
+                    context.startActivity(intent);
                 }
                 else if(d.getName()=="New Project"){
-                    Intent intent= new Intent(cxt,NewProjectActivity.class);
+                    Intent intent= new Intent(context,NewProjectActivity.class);
                     intent.putExtra("project",d);
-                    cxt.startActivity(intent);
+                    context.startActivity(intent);
                 }
                 else if(d.getName()=="Activity LifeCycle"){
-                    Intent intent= new Intent(cxt,LifecycleActivity.class);
+                    Intent intent= new Intent(context,LifecycleActivity.class);
                     intent.putExtra("lifecycle",d);
-                    cxt.startActivity(intent);
+                    context.startActivity(intent);
                 }
                 else if(d.getName()=="ImageView"){
-                    Intent intent= new Intent(cxt,ImageviewActivity.class);
+                    Intent intent= new Intent(context,ImageviewActivity.class);
                     intent.putExtra("imageview",d);
-                    cxt.startActivity(intent);
+                    context.startActivity(intent);
                 }
                 else if(d.getName()=="Basic Calculator"){
-                    Intent intent= new Intent(cxt,CalculatorActivity.class);
+                    Intent intent= new Intent(context,CalculatorActivity.class);
                     intent.putExtra("calculator",d);
-                    cxt.startActivity(intent);
+                    context.startActivity(intent);
                 }
                 else if(d.getName()=="EditText"){
-                    Intent intent= new Intent(cxt,EdittextActivity.class);
+                    Intent intent= new Intent(context,EdittextActivity.class);
                     intent.putExtra("edittext",d);
-                    cxt.startActivity(intent);
+                    context.startActivity(intent);
                 }
                 else if(d.getName()=="WebView"){
-                    Intent intent= new Intent(cxt,WebviewActivity.class);
+                    Intent intent= new Intent(context,WebviewActivity.class);
                     intent.putExtra("webview",d);
-                    cxt.startActivity(intent);
+                    context.startActivity(intent);
                 }
             }
         });
@@ -96,40 +97,40 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
         return arrayList.size();
     }
 
-    @Override
-    public Filter getFilter() {
-        return listFilter;
-    }
-
-   private Filter listFilter = new Filter() {
-       @Override
-       protected FilterResults performFiltering(CharSequence constraint) {
-        ArrayList<Data> found = new ArrayList<>();
-
-        if(constraint == null || constraint.length() == 0) {
-            found.addAll(arrayListFull);
-        } else {
-            String filterPattern = constraint.toString().toLowerCase().trim();
-
-            for (Data item:arrayListFull)
-            {
-             if(item.name.toLowerCase().trim().contains(filterPattern))
-                 found.add(item);
-            }
-        }
-        FilterResults results = new FilterResults();
-        results.values = found;
-        return results;
-       }
-
-
-       @Override
-       protected void publishResults(CharSequence constraint, FilterResults results) {
-        arrayList.clear();
-        arrayList.addAll((ArrayList) results.values);
-        notifyDataSetChanged();
-       }
-   };
+//    @Override
+//    public Filter getFilter() {
+//        return listFilter;
+//    }
+//
+//   private Filter listFilter = new Filter() {
+//       @Override
+//       protected FilterResults performFiltering(CharSequence constraint) {
+//        ArrayList<Data> found = new ArrayList<>();
+//
+//        if(constraint == null || constraint.length() == 0) {
+//            found.addAll(arrayListFull);
+//        } else {
+//            String filterPattern = constraint.toString().toLowerCase().trim();
+//
+//            for (Data item:arrayListFull)
+//            {
+//             if(item.name.toLowerCase().trim().contains(filterPattern))
+//                 found.add(item);
+//            }
+//        }
+//        FilterResults results = new FilterResults();
+//        results.values = found;
+//        return results;
+//       }
+//
+//
+//       @Override
+//       protected void publishResults(CharSequence constraint, FilterResults results) {
+//        arrayList.clear();
+//        arrayList.addAll((ArrayList) results.values);
+//        notifyDataSetChanged();
+//       }
+//   };
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView androidImage;

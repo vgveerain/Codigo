@@ -17,6 +17,11 @@ public class Data implements Parcelable {
         this.img = img;
     }
 
+    public Data(String name, String desc) {
+        this.name = name;
+        this.desc = desc;
+    }
+
     protected Data(Parcel in) {
         name = in.readString();
         desc = in.readString();

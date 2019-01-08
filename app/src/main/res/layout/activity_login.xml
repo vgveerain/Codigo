@@ -1,87 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     tools:context=".LoginActivity"
+    android:background="#EAF0F1"
     >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="420dp"
-        android:background="#FFFFFF"
-        android:layout_alignParentBottom="true"
-        >
+    <ImageView
+        android:id="@+id/loginImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        />
+
     <LinearLayout
+        android:id="@+id/numberLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_below="@+id/loginImage"
+        android:layout_alignParentBottom="true"
+        android:background="#EAF0F1"
         >
 
-     <TextView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:textColor="@color/colorPrimary"
-         android:text="PHONE NUMBER"
-         android:textSize="15sp"
-         android:layout_marginTop="50dp"
-         android:layout_marginLeft="11dp"
-         android:textStyle="bold"
-
-         />
-        
-    <EditText
-        android:layout_width="match_parent"
-        android:id="@+id/phone_number"
-        android:inputType="phone"
-        android:layout_margin="10dp"
-        android:hint="Enter Phone Number with country code"
-        android:layout_height="wrap_content" />
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="11dp"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:textColor="@color/colorPrimary"
-            android:text="VERIFICATION CODE"
-            />
-
-        <EditText
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:id="@+id/verif"
-            android:hint="Enter Verification Code"
-            android:inputType="number"
-            android:layout_height="wrap_content" />
     <TextView
         android:layout_width="wrap_content"
-        android:id="@+id/gvCode"
-        android:text="Get Verification Code"
-        android:textColor="@color/colorPrimary"
-        android:layout_margin="2dp"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/roboto"
+        android:text="Verify Your Number"
+        android:textColor="#222222"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
+        android:text="Please enter your mobile number to receive a verification code.Carrier rates may apply."
+        />
+
+    <EditText
+        android:id="@+id/pNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:gravity="center_horizontal"
+        android:fontFamily="@font/roboto"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        />
 
     <Button
-        android:layout_width="200dp"
-        android:text="Sign In"
-        android:layout_gravity="center"
-        android:id="@+id/btnSign"
-        android:layout_marginTop="40dp"
+        android:id="@+id/sNumber"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textSize="20dp"
+        android:text="Continue"
         android:background="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/roboto"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        android:layout_gravity="center"
         />
+
     </LinearLayout>
-    </RelativeLayout>
 </RelativeLayout>

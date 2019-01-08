@@ -23,7 +23,9 @@
         android:textStyle="bold"/>
     <ImageView
         android:layout_width="56dp"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
+        android:padding="9dp"
+        android:src="@drawable/ic_account_circle_black_24dp"
         android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

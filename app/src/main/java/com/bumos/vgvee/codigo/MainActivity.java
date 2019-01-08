@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView listRecyclerView;
     ArrayList<Data> dataArrayListSource;
     Adapter adapter;
+//    String t,q;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,9 +86,12 @@ public class MainActivity extends AppCompatActivity {
 //                Log.d("SimpleSearchView", "Text changed:" + newText);
 //                return false;
                 ArrayList<Data> dataArrayListResult = new ArrayList<>();
-                if(newText != null && !newText.isEmpty()){
+//                t=newText.toLowerCase().trim();
+                if(newText!= null && !newText.isEmpty()){
                     for(Data item : dataArrayListSource){
-                        if(item.name.contains(newText)){
+
+//                        Log.e("TAG",""+q+" "+t);
+                        if(item.name.toLowerCase().trim().contains(newText.toLowerCase().trim())){
                             dataArrayListResult.add(item);
                         }
                     }

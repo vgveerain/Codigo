@@ -73,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
         adapter=new Adapter(dataArrayListSource,MainActivity.this);
         listRecyclerView.setAdapter(adapter);
         listRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+//        listRecyclerView.getLayoutParams().height = 1500;
+        listRecyclerView.setNestedScrollingEnabled(false);
+        listRecyclerView.setHasFixedSize(false);
 
         simpleSearchView.setOnQueryTextListener(new SimpleSearchView.OnQueryTextListener() {
             @Override

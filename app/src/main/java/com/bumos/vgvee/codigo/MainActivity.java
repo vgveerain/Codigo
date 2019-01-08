@@ -1,5 +1,6 @@
 package com.bumos.vgvee.codigo;
 
+import android.graphics.Color;
 import android.graphics.Point;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView listRecyclerView;
     ArrayList<Data> dataArrayListSource;
     Adapter adapter;
+//    String t,q;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         simpleSearchView.setRevealAnimationCenter(left);
+        simpleSearchView.setBackIconColor(Color.BLACK);
 
         //RecyclerView Declaration
         listRecyclerView = findViewById(R.id.listRV);
@@ -72,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
         adapter=new Adapter(dataArrayListSource,MainActivity.this);
         listRecyclerView.setAdapter(adapter);
         listRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+//        listRecyclerView.getLayoutParams().height = 1500;
+        listRecyclerView.setNestedScrollingEnabled(false);
+        listRecyclerView.setHasFixedSize(false);
 
         simpleSearchView.setOnQueryTextListener(new SimpleSearchView.OnQueryTextListener() {
             @Override
@@ -85,9 +91,12 @@ public class MainActivity extends AppCompatActivity {
 //                Log.d("SimpleSearchView", "Text changed:" + newText);
 //                return false;
                 ArrayList<Data> dataArrayListResult = new ArrayList<>();
-                if(newText != null && !newText.isEmpty()){
+//                t=newText.toLowerCase().trim();
+                if(newText!= null && !newText.isEmpty()){
                     for(Data item : dataArrayListSource){
-                        if(item.name.contains(newText)){
+
+//                        Log.e("TAG",""+q+" "+t);
+                        if(item.name.toLowerCase().trim().contains(newText.toLowerCase().trim())){
                             dataArrayListResult.add(item);
                         }
                     }

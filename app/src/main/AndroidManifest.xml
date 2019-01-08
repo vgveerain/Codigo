@@ -13,40 +13,41 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".EdittextActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".LifecycleActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".NewProjectActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".TextViewActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ButtonActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".CalculatorActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ImageviewActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".WebviewActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".LoginActivity" />
 
-        <activity android:name=".EdittextActivity"
-            android:parentActivityName=".MainActivity"/>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
-
-        <activity android:name=".LifecycleActivity"
-            android:parentActivityName=".MainActivity"/>
-
-
-        <activity android:name=".NewProjectActivity"
-            android:parentActivityName=".MainActivity"/>
-
-
-        <activity android:name=".TextViewActivity"
-            android:parentActivityName=".MainActivity"/>
-
-
-        <activity android:name=".ButtonActivity"
-            android:parentActivityName=".MainActivity"/>
-
-
-        <activity android:name=".CalculatorActivity"
-            android:parentActivityName=".MainActivity"/>
-
-        <activity android:name=".ImageviewActivity"
-            android:parentActivityName=".MainActivity"/>
-
-        <activity android:name=".WebviewActivity"
-            android:parentActivityName=".MainActivity"/>
-        
-
+        <activity android:name=".CodeReceived"></activity>
     </application>
 
 </manifest>

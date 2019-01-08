@@ -1,5 +1,6 @@
 package com.bumos.vgvee.codigo;
 
+import android.graphics.Color;
 import android.graphics.Point;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         simpleSearchView.setRevealAnimationCenter(left);
+        simpleSearchView.setBackIconColor(Color.BLACK);
 
         //RecyclerView Declaration
         listRecyclerView = findViewById(R.id.listRV);

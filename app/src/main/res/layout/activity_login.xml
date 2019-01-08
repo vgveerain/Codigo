@@ -54,7 +54,6 @@
         android:id="@+id/pNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
         android:gravity="center_horizontal"
         android:fontFamily="@font/roboto"
         android:layout_marginRight="60dp"

@@ -43,30 +43,30 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-        pSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String phoneNumber = pNum.getText().toString();
 
-                PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                        phoneNumber,
-                        60,
-                        TimeUnit.SECONDS,
-                        LoginActivity.this,
-                         mCallBacks
-                );
-            }
-        });
+            pSend.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String phoneNumber = pNum.getText().toString();
 
-        pVerify.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String verificationCode = pCode.getText().toString();
-                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId,verificationCode);
-                signInWithPhoneAuthCredential(credential);
+                    PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                            phoneNumber,
+                            60,
+                            TimeUnit.SECONDS,
+                            LoginActivity.this,
+                            mCallBacks
+                    );
+                }
+            });
+            pVerify.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String verificationCode = pCode.getText().toString();
+                    PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, verificationCode);
+                    signInWithPhoneAuthCredential(credential);
 
-            }
-        });
+                }
+            });
 
         mCallBacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
@@ -97,9 +97,15 @@ public class LoginActivity extends AppCompatActivity {
                 mResendToken = token;
                 setContentView(R.layout.activity_code_recieved);
                 // ...
+
+
             }
         };
+
+
     }
+
+
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)

@@ -1,5 +1,6 @@
 package com.bumos.vgvee.codigo;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.support.v7.app.ActionBar;
@@ -12,6 +13,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.ferfalk.simplesearchview.SimpleSearchView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,7 +27,21 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView listRecyclerView;
     ArrayList<Data> dataArrayListSource;
     Adapter adapter;
+    FirebaseAuth mAuth;
 //    String t,q;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if(currentUser == null)
+        {
+            Intent loginIntent = new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(loginIntent);
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         //Setting toolbar and then re-setting afterwards
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mAuth = FirebaseAuth.getInstance();
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);

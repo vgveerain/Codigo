@@ -7,6 +7,8 @@ public class Data implements Parcelable {
     String name;
     String desc;
     int img;
+    public boolean progress = false;
+
 
     public Data() {
     }

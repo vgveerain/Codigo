@@ -44,7 +44,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         final Data d=arrayList.get(i);
         viewHolder.topicTitle.setText(d.getName());
         viewHolder.topicDesc.setText(d.getDesc());
-        Picasso.get().load(d.getImg()).into(viewHolder.androidImage);
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

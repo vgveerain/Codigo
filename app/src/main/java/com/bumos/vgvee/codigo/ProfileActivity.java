@@ -9,12 +9,12 @@ import java.util.ArrayList;
 public class ProfileActivity extends AppCompatActivity {
 
     ArrayList<Data> dataArrayList;
-    int count=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_activity);
         int progress = getIntent().getExtras().getInt("progress");
-        Log.e("TAG",""+progress);
+        Log.e("TAGProfile",""+progress);
     }
 }

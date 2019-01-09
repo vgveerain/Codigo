@@ -26,6 +26,7 @@
         >
 
     <TextView
+        android:id="@+id/tView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -38,6 +39,7 @@
         />
 
     <TextView
+        android:id="@+id/tView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -47,7 +49,7 @@
         android:gravity="center"
         android:paddingLeft="80dp"
         android:paddingRight="80dp"
-        android:text="Please enter your mobile number to receive a verification code.Carrier rates may apply."
+        android:text="Please enter your 10-digit mobile number to receive a verification code.Carrier rates may apply."
         />
 
     <EditText
@@ -56,8 +58,9 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:fontFamily="@font/roboto"
-        android:layout_marginRight="60dp"
-        android:layout_marginLeft="60dp"
+        android:inputType="number"
+        android:layout_marginRight="70dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="20dp"
         />
 
@@ -69,11 +72,11 @@
         android:layout_marginRight="50dp"
         android:textSize="20dp"
         android:text="Continue"
-        android:background="@color/colorPrimaryDark"
+        android:background="#222222"
         android:textColor="#FFFFFF"
         android:fontFamily="@font/roboto"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
         android:layout_gravity="center"
         />
 

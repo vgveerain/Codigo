@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,12 +25,14 @@ import java.util.concurrent.TimeUnit;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText pNum,pCode;
-    Button pSend,pVerify;
+    EditText pNum;
+    Button pSend;
+    TextView textView,textView2;
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBacks;
     FirebaseAuth mAuth;
     PhoneAuthProvider.ForceResendingToken mResendToken;
     String mVerificationId;
+    private int btnType=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,34 +40,43 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         pNum = findViewById(R.id.pNumber);
-        pCode = findViewById(R.id.code);
         pSend = findViewById(R.id.sNumber);
-        pVerify = findViewById(R.id.verify);
         mAuth = FirebaseAuth.getInstance();
-
-
+        textView = findViewById(R.id.tView1);
+        textView2 = findViewById(R.id.tView2);
 
             pSend.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String phoneNumber = pNum.getText().toString();
 
-                    PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                            phoneNumber,
-                            60,
-                            TimeUnit.SECONDS,
-                            LoginActivity.this,
-                            mCallBacks
-                    );
-                }
-            });
-            pVerify.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String verificationCode = pCode.getText().toString();
-                    PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, verificationCode);
-                    signInWithPhoneAuthCredential(credential);
+                    if (btnType == 0) {
+                        String phoneNumber = pNum.getText().toString();
 
+                        if (phoneNumber.length() == 10) {
+
+                            PhoneAuthProvider.getInstance().verifyPhoneNumber("+91"+phoneNumber,
+                                    60,
+                                    TimeUnit.SECONDS,
+                                    LoginActivity.this,
+                                    mCallBacks
+                            );
+                        }
+                        else{
+                            Toast.makeText(LoginActivity.this, "Please enter a Number", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else {
+                        String verificationCode = pNum.getText().toString();
+
+                        if(verificationCode.length() == 6)
+                        {
+                        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, verificationCode);
+                        signInWithPhoneAuthCredential(credential);
+                        }
+                        else {
+                            Toast.makeText(LoginActivity.this, "Please Enter the verification code",Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 }
             });
 
@@ -95,17 +107,15 @@ public class LoginActivity extends AppCompatActivity {
                 // Save verification ID and resending token so we can use them later
                 mVerificationId = verificationId;
                 mResendToken = token;
-                setContentView(R.layout.activity_code_recieved);
+                btnType =1;
+                textView.setText("OTP Verification");
+                textView2.setText("Enter OTP sent to your number");
+                pNum.setText("");
+                pSend.setText("Verify");
                 // ...
-
-
             }
         };
-
-
     }
-
-
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)
@@ -135,6 +145,17 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        btnType =0;
+        textView.setText("Verify Your Number");
+        textView2.setText("Please enter your 10-digit mobile number to receive a verification code.Carrier rates may apply.");
+        pNum.setText("");
+        pSend.setText("Continue");
+
     }
 
 }

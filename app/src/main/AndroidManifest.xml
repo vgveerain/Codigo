@@ -9,54 +9,49 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".EdittextActivity"
+        <activity
+            android:name=".EdittextActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity"/>
-
-
-        <activity android:name=".LifecycleActivity"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".LifecycleActivity"
             android:launchMode="singleTop"
-            />
-
-
-        <activity android:name=".NewProjectActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".NewProjectActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity"/>
-
-
-        <activity android:name=".TextViewActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".TextViewActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity"/>
-
-
-        <activity android:name=".ButtonActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ButtonActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity"/>
-
-
-        <activity android:name=".CalculatorActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".CalculatorActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity"/>
-
-        <activity android:name=".ImageviewActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ImageviewActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity"/>
-
-        <activity android:name=".WebviewActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".WebviewActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity"/>
-
-
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>

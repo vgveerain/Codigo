@@ -1,6 +1,6 @@
 package com.bumos.vgvee.codigo;
-
 import android.graphics.Color;
+import android.content.Intent;
 import android.graphics.Point;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -20,10 +20,13 @@ public class MainActivity extends AppCompatActivity {
 
     //Global Declarations
     SimpleSearchView simpleSearchView;
-    ImageView searchIV;
+    ImageView searchIV,profileIV;
     RecyclerView listRecyclerView;
     ArrayList<Data> dataArrayListSource;
     Adapter adapter;
+    int count = 0;
+    int progress = 0;
+
 //    String t,q;
 
     @Override
@@ -40,6 +43,17 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.toolbar);
 //        View view = getSupportActionBar().getCustomView();
 
+        profileIV=findViewById(R.id.profileIV);
+        profileIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
+//                intent.putParcelableArrayListExtra("array",dataArrayListSource);
+                progress = (int)((count/dataArrayListSource.size())*100);
+                intent.putExtra("progress", progress);
+                startActivity(intent);
+            }
+        });
         //Declarations for SimpleSearchView
         searchIV = findViewById(R.id.searchIV);
         simpleSearchView = findViewById(R.id.searchView);
@@ -115,5 +129,30 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        if(savedInstanceState != null){
+
+        }
+
+        Log.e("TAGonCreateOut", ""+count);
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+//        Log.e("onRestart","Restart");
+        for(Data item: dataArrayListSource){
+
+//            Log.e("inLoop",""+item.isProgress());
+            if(item.progress){
+//                Log.e("count",""+count);
+                count++;
+            }
+//            Log.e("TAG",""+item.getName());
+//            Log.e("TAG","Loop"+dataArrayList.size());
+
+        }
+        Log.e("TAGoutCount","Count - "+count);
     }
 }

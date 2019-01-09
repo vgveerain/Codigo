@@ -10,6 +10,14 @@ public class Data implements Parcelable {
     public boolean progress = false;
 
 
+    public boolean isProgress() {
+        return progress;
+    }
+
+    public void setProgress(boolean progress) {
+        this.progress = progress;
+    }
+
     public Data() {
     }
 

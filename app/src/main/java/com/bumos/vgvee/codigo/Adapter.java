@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -63,6 +64,22 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     Log.e("TAG",""+d.progress);
                     intent.putExtra("button",d);
                     context.startActivity(intent);
+
+                } else if(d.getName()=="SnackBar"){
+                    Intent intent= new Intent(context,SnackBarActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAG",""+d.progress);
+                    intent.putExtra("snackbar",d);
+                    context.startActivity(intent);
+
+                } else if(d.getName()=="RadioButton"){
+                    Intent intent= new Intent(context,RadioButtonActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAG",""+d.progress);
+                    intent.putExtra("radiobutton",d);
+                    context.startActivity(intent);
                 }
                 else if(d.getName()=="New Project"){
                     Intent intent= new Intent(context,NewProjectActivity.class);
@@ -102,6 +119,29 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     d.setProgress(true);
                     Log.e("TAG",""+d.progress);
                     intent.putExtra("edittext",d);
+                    context.startActivity(intent);
+                } else if(d.getName()=="TextClock"){
+                    Intent intent= new Intent(context,TextClockActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAG",""+d.progress);
+                    intent.putExtra("textclock",d);
+                    context.startActivity(intent);
+
+                } else if(d.getName()=="DatePicker"){
+                    Intent intent= new Intent(context,DatePickerActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAG",""+d.progress);
+                    intent.putExtra("datepicker",d);
+                    context.startActivity(intent);
+
+                } else if(d.getName()=="ListView"){
+                    Intent intent= new Intent(context,ListViewActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAG",""+d.progress);
+                    intent.putExtra("listview",d);
                     context.startActivity(intent);
                 }
                 else if(d.getName()=="WebView"){

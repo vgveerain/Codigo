@@ -83,8 +83,13 @@ public class MainActivity extends AppCompatActivity {
         dataArrayListSource.add(new Data("ImageView","A user Interface to display Image files"));
         dataArrayListSource.add(new Data("SnackBar","Snackbars show a brief message at the bottom of the mobile screen"));
         dataArrayListSource.add(new Data("Basic Calculator","Building a calculator using the components discussed so far "));
-        dataArrayListSource.add(new Data("CardView","The CardView API is an easy way to display information inside cards"));
+//        dataArrayListSource.add(new Data("CardView","The CardView API is an easy way to display information inside cards"));
         dataArrayListSource.add(new Data("WebView","WebView is a view that display web pages inside an application"));
+        dataArrayListSource.add(new Data("TextClock","TextClock is a UI control which is used to show the current date or time as a formatted string."));
+        dataArrayListSource.add(new Data("DatePicker","Android DatePicker is a widget to select date. It allows you to select date by day, month and year. "));
+        dataArrayListSource.add(new Data("ListView","ListView is a view group that displays a list of scrollable items."));
+        dataArrayListSource.add(new Data("RadioButton","Radio buttons allow the user to select one option from a set. You should use radio buttons for optional sets that are mutually exclusive if you think that the user needs to see all available options side-by-side."));
+
 
         adapter=new Adapter(dataArrayListSource,MainActivity.this);
         listRecyclerView.setAdapter(adapter);

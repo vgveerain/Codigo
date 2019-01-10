@@ -5,24 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:background="#EAF0F1"
+    android:background="@color/colorPrimaryDark"
     >
-
+<LinearLayout
+    android:id="@+id/lLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
     <ImageView
         android:id="@+id/loginImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/login"
         />
+
+</LinearLayout>
 
     <LinearLayout
         android:id="@+id/numberLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@+id/loginImage"
         android:layout_alignParentBottom="true"
-        android:background="#EAF0F1"
+        android:background="@color/colorPrimaryDark"
         >
 
     <TextView
@@ -59,8 +67,10 @@
         android:gravity="center_horizontal"
         android:fontFamily="@font/roboto"
         android:inputType="number"
-        android:layout_marginRight="70dp"
-        android:layout_marginLeft="70dp"
+        android:textColor="#222222"
+        android:backgroundTint="#000000"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginTop="20dp"
         />
 
@@ -79,6 +89,5 @@
         android:layout_marginBottom="40dp"
         android:layout_gravity="center"
         />
-
     </LinearLayout>
 </RelativeLayout>

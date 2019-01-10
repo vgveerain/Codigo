@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView textView,textView2;
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBacks;
     FirebaseAuth mAuth;
+    ImageView imageView;
     PhoneAuthProvider.ForceResendingToken mResendToken;
     String mVerificationId;
     private int btnType=0;
@@ -44,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         textView = findViewById(R.id.tView1);
         textView2 = findViewById(R.id.tView2);
+        imageView = findViewById(R.id.loginImage);
 
             pSend.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -74,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                         signInWithPhoneAuthCredential(credential);
                         }
                         else {
-                            Toast.makeText(LoginActivity.this, "Please Enter the verification code",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Please enter the verification code",Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -92,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onVerificationFailed(FirebaseException e) {
 
-                Toast.makeText(LoginActivity.this, "Maybe phone number format is not valid Try Again!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Invalid mobile number", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -109,9 +112,10 @@ public class LoginActivity extends AppCompatActivity {
                 mResendToken = token;
                 btnType =1;
                 textView.setText("OTP Verification");
-                textView2.setText("Enter OTP sent to your number");
+                textView2.setText("Enter the 6-digit OTP sent to your mobile number");
+                imageView.setImageResource(R.drawable.verify);
                 pNum.setText("");
-                pSend.setText("Verify");
+                pSend.setText("Verify OTP");
                 // ...
             }
         };
@@ -149,13 +153,18 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        btnType =0;
-        textView.setText("Verify Your Number");
-        textView2.setText("Please enter your 10-digit mobile number to receive a verification code.Carrier rates may apply.");
-        pNum.setText("");
-        pSend.setText("Continue");
-
+        if(btnType == 1) {
+            btnType = 0;
+            textView.setText("Verify Your Number");
+            textView2.setText("Please enter your 10-digit mobile number to receive a verification code.Carrier rates may apply.");
+            pNum.setText("");
+            imageView.setImageResource(R.drawable.login);
+            pSend.setText("Continue");
+        }
+        else
+        {
+            super.onBackPressed();
+        }
     }
 
 }

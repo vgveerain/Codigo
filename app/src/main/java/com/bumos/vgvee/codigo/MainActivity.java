@@ -1,7 +1,10 @@
 package com.bumos.vgvee.codigo;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.content.Intent;
 import android.graphics.Point;
+import android.os.PersistableBundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,9 +26,12 @@ public class MainActivity extends AppCompatActivity {
     ImageView searchIV,profileIV;
     RecyclerView listRecyclerView;
     ArrayList<Data> dataArrayListSource;
+    ArrayList<Data> dataArrayListVisited;
     Adapter adapter;
-    int count = 0;
+    float count = 0;
+    float progress1 = 0;
     int progress = 0;
+    float size = 0;
 
 //    String t,q;
 
@@ -33,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //declarations
+        if(savedInstanceState == null){
+            dataArrayListVisited = new ArrayList<>();
+        }
 
         //Setting toolbar and then re-setting afterwards
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
@@ -43,17 +54,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.toolbar);
 //        View view = getSupportActionBar().getCustomView();
 
-        profileIV=findViewById(R.id.profileIV);
-        profileIV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
-//                intent.putParcelableArrayListExtra("array",dataArrayListSource);
-                progress = (int)((count/dataArrayListSource.size())*100);
-                intent.putExtra("progress", progress);
-                startActivity(intent);
-            }
-        });
         //Declarations for SimpleSearchView
         searchIV = findViewById(R.id.searchIV);
         simpleSearchView = findViewById(R.id.searchView);
@@ -91,6 +91,23 @@ public class MainActivity extends AppCompatActivity {
         dataArrayListSource.add(new Data("RadioButton","Radio buttons allow the user to select one option from a set. You should use radio buttons for optional sets that are mutually exclusive if you think that the user needs to see all available options side-by-side."));
 
 
+        //SharedPreference
+        SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
+        if(sharedPref.getBoolean("hasData", false)){
+            for(int i=0;i<dataArrayListSource.size();i++){
+                dataArrayListSource.get(i).setProgress(sharedPref.getBoolean("Sdata"+i, false));
+            }
+        }
+        //update values at start
+        for(Data d : dataArrayListSource){
+            if(d.progress){
+                if(!dataArrayListVisited.contains(d)){
+                    dataArrayListVisited.add(d);
+                }
+            }
+        }
+        Log.e("TAGonCreate", ""+dataArrayListVisited.size());
+
         adapter=new Adapter(dataArrayListSource,MainActivity.this);
         listRecyclerView.setAdapter(adapter);
         listRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
@@ -107,14 +124,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-//                Log.d("SimpleSearchView", "Text changed:" + newText);
-//                return false;
                 ArrayList<Data> dataArrayListResult = new ArrayList<>();
-//                t=newText.toLowerCase().trim();
                 if(newText!= null && !newText.isEmpty()){
                     for(Data item : dataArrayListSource){
 
-//                        Log.e("TAG",""+q+" "+t);
                         if(item.name.toLowerCase().trim().contains(newText.toLowerCase().trim())){
                             dataArrayListResult.add(item);
                         }
@@ -135,29 +148,75 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        if(savedInstanceState != null){
-
-        }
-
-        Log.e("TAGonCreateOut", ""+count);
+        //Profile ImageView
+        profileIV=findViewById(R.id.profileIV);
+        profileIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
+//                intent.putParcelableArrayListExtra("array",dataArrayListSource);
+                count = dataArrayListVisited.size();
+                size = dataArrayListSource.size();
+                Log.e("TAGProfileOCSize", ""+size);
+                Log.e("TAGProfileOCCount", ""+count);
+                progress1 = count/size;
+                Log.e("TAGProfileOCProgressF", ""+progress1);
+                progress = (int)(progress1*100);
+                Log.e("TAGProfileOCProgress%", ""+progress);
+                intent.putExtra("progress", progress);
+                startActivity(intent);
+            }
+        });
 
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-//        Log.e("onRestart","Restart");
-        for(Data item: dataArrayListSource){
-
-//            Log.e("inLoop",""+item.isProgress());
-            if(item.progress){
-//                Log.e("count",""+count);
-                count++;
+        for(Data d : dataArrayListSource){
+            if(d.progress){
+                if(!dataArrayListVisited.contains(d)){
+                    dataArrayListVisited.add(d);
+                }
             }
-//            Log.e("TAG",""+item.getName());
-//            Log.e("TAG","Loop"+dataArrayList.size());
-
         }
-        Log.e("TAGoutCount","Count - "+count);
+        Log.e("TAGonRestart", ""+dataArrayListVisited.size());
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putParcelableArrayList("data", dataArrayListVisited);
+        Log.e("TAGonSave", ""+dataArrayListVisited.size());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        dataArrayListVisited = savedInstanceState.getParcelableArrayList("data");
+        Log.e("TAGonSave", ""+dataArrayListVisited.size());
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e("TAGonStop", "....");
+        SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        int counts = 0;
+        for (int i = 0; i < dataArrayListSource.size(); i++) {
+            if (i == 0) {
+                editor.putBoolean("hasData", true);
+                Log.e("TAGonStop", "0 -> "+dataArrayListSource.get(i).progress);
+            }
+            editor.putBoolean("Sdata" + i, dataArrayListSource.get(i).progress);
+            if(dataArrayListSource.get(i).progress){
+                counts++;
+            }
+        }
+        Log.e("TAGonStop", "afterLoop -> "+sharedPref.getBoolean("hasData", false)+", count -> "+counts);
+        editor.commit();
     }
 }

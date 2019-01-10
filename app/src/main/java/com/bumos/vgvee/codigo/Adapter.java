@@ -53,7 +53,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                    Intent intent= new Intent(context,TextViewActivity.class);
                    d.progress=true;
                    d.setProgress(true);
-                   Log.e("TAG",""+d.progress);
+                   Log.e("TAGadapter",""+d.progress);
                    intent.putExtra("textview",d);
                    context.startActivity(intent);
                 }
@@ -61,7 +61,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     Intent intent= new Intent(context,ButtonActivity.class);
                     d.progress=true;
                     d.setProgress(true);
-                    Log.e("TAG",""+d.progress);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("button",d);
                     context.startActivity(intent);
 
@@ -85,7 +85,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     Intent intent= new Intent(context,NewProjectActivity.class);
                     d.progress=true;
                     d.setProgress(true);
-                    Log.e("TAG",""+d.progress);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("project",d);
                     context.startActivity(intent);
                 }
@@ -93,7 +93,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     Intent intent= new Intent(context,LifecycleActivity.class);
                     d.progress=true;
                     d.setProgress(true);
-                    Log.e("TAG",""+d.progress);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("lifecycle",d);
                     context.startActivity(intent);
                 }
@@ -101,7 +101,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     Intent intent= new Intent(context,ImageviewActivity.class);
                     d.progress=true;
                     d.setProgress(true);
-                    Log.e("TAG",""+d.progress);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("imageview",d);
                     context.startActivity(intent);
                 }
@@ -109,7 +109,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     Intent intent= new Intent(context,CalculatorActivity.class);
                     d.progress=true;
                     d.setProgress(true);
-                    Log.e("TAG",""+d.progress);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("calculator",d);
                     context.startActivity(intent);
                 }
@@ -117,7 +117,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     Intent intent= new Intent(context,EdittextActivity.class);
                     d.progress=true;
                     d.setProgress(true);
-                    Log.e("TAG",""+d.progress);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("edittext",d);
                     context.startActivity(intent);
                 } else if(d.getName()=="TextClock"){
@@ -148,7 +148,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     Intent intent= new Intent(context,WebviewActivity.class);
                     d.progress=true;
                     d.setProgress(true);
-                    Log.e("TAG",""+d.progress);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("webview",d);
                     context.startActivity(intent);
                 }

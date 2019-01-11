@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -49,41 +51,104 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             public void onClick(View v) {
                 if(d.getName()=="TextView"){
                    Intent intent= new Intent(context,TextViewActivity.class);
+                   d.progress=true;
+                   d.setProgress(true);
+                   Log.e("TAGadapter",""+d.progress);
                    intent.putExtra("textview",d);
                    context.startActivity(intent);
                 }
                 else if(d.getName()=="Button"){
                     Intent intent= new Intent(context,ButtonActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("button",d);
+                    context.startActivity(intent);
+
+                } else if(d.getName()=="SnackBar"){
+                    Intent intent= new Intent(context,SnackBarActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAG",""+d.progress);
+                    intent.putExtra("snackbar",d);
+                    context.startActivity(intent);
+
+                } else if(d.getName()=="RadioButton"){
+                    Intent intent= new Intent(context,RadioButtonActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAG",""+d.progress);
+                    intent.putExtra("radiobutton",d);
                     context.startActivity(intent);
                 }
                 else if(d.getName()=="New Project"){
                     Intent intent= new Intent(context,NewProjectActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("project",d);
                     context.startActivity(intent);
                 }
                 else if(d.getName()=="Activity LifeCycle"){
                     Intent intent= new Intent(context,LifecycleActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("lifecycle",d);
                     context.startActivity(intent);
                 }
                 else if(d.getName()=="ImageView"){
                     Intent intent= new Intent(context,ImageviewActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("imageview",d);
                     context.startActivity(intent);
                 }
                 else if(d.getName()=="Basic Calculator"){
                     Intent intent= new Intent(context,CalculatorActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("calculator",d);
                     context.startActivity(intent);
                 }
                 else if(d.getName()=="EditText"){
                     Intent intent= new Intent(context,EdittextActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("edittext",d);
+                    context.startActivity(intent);
+                } else if(d.getName()=="TextClock"){
+                    Intent intent= new Intent(context,TextClockActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAG",""+d.progress);
+                    intent.putExtra("textclock",d);
+                    context.startActivity(intent);
+
+                } else if(d.getName()=="DatePicker"){
+                    Intent intent= new Intent(context,DatePickerActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAG",""+d.progress);
+                    intent.putExtra("datepicker",d);
+                    context.startActivity(intent);
+
+                } else if(d.getName()=="ListView"){
+                    Intent intent= new Intent(context,ListViewActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAG",""+d.progress);
+                    intent.putExtra("listview",d);
                     context.startActivity(intent);
                 }
                 else if(d.getName()=="WebView"){
                     Intent intent= new Intent(context,WebviewActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("webview",d);
                     context.startActivity(intent);
                 }

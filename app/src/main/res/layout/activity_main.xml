@@ -52,7 +52,7 @@
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="175dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <ImageView
@@ -67,18 +67,20 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Start fast, Learn more"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/roboto"
                     android:textColor="#000000"
                     android:textStyle="bold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textColor="#222222"
                     android:layout_gravity="center"
                     android:layout_margin="15dp"
                     android:gravity="center"
+                    android:fontFamily="@font/roboto"
                     android:text="You've set your goals, now take some lessons and start earning those skills."/>
 
             </LinearLayout>

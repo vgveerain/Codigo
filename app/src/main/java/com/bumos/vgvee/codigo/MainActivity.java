@@ -1,4 +1,5 @@
 package com.bumos.vgvee.codigo;
+import android.content.Intent;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -15,6 +16,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.ferfalk.simplesearchview.SimpleSearchView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,12 +31,26 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Data> dataArrayListSource;
     ArrayList<Data> dataArrayListVisited;
     Adapter adapter;
+    FirebaseAuth mAuth;
     float count = 0;
     float progress1 = 0;
     int progress = 0;
     float size = 0;
 
 //    String t,q;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if(currentUser == null)
+        {
+            Intent loginIntent = new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(loginIntent);
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         //Setting toolbar and then re-setting afterwards
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mAuth = FirebaseAuth.getInstance();
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);

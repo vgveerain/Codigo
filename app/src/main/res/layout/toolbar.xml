@@ -20,10 +20,11 @@
         android:layout_height="wrap_content"
         android:text="Codigo"
         android:textSize="25sp"
-        android:textColor="#000000"
+        android:textColor="#222222"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:layout_centerInParent="true"
-        android:textStyle="bold"/>
+        android:fontFamily="@font/roboto"/>
 
     <ImageView
         android:layout_width="56dp"

@@ -9,11 +9,13 @@ import android.os.PersistableBundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.ferfalk.simplesearchview.SimpleSearchView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     float progress1 = 0;
     int progress = 0;
     float size = 0;
+    LinearLayout banner;
 
 //    String t,q;
 
@@ -61,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState == null){
             dataArrayListVisited = new ArrayList<>();
         }
+
+        banner = findViewById(R.id.banner);
 
         //Setting toolbar and then re-setting afterwards
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
@@ -98,6 +103,24 @@ public class MainActivity extends AppCompatActivity {
         dataArrayListSource.add(new Data("Activity LifeCycle","Understanding the lifecycle of an android application"));
         dataArrayListSource.add(new Data("TextView","A user interface element that displays text to the user."));
         dataArrayListSource.add(new Data("Button","A user interface element the user can tap or click to perform an action."));
+
+        dataArrayListSource.add(new Data("Button2", "A user interface element the user can tap or click to perform an action.", R.drawable.menu , "public class ButtonActivity extends AppCompatActivity {\nButton btn;\n" +
+                "    @Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\nbtn=findViewById(R.id.btn);\nbtn.setOnClickListener(new View.OnClickListener() {\n" +
+                "            @Override\n" +
+                "            public void onClick(View v) {\n" +
+                "                Toast.makeText(ButtonActivity.this,\"Button Clicked\",Toast.LENGTH_SHORT).show();\n" +
+                "            }\n" +
+                "        });\n" +
+                "    }\n" +
+                "}\n", "<Button\n" +
+                "            android:layout_margin=\"10dp\"\n" +
+                "            android:text=\"Click Me\"\n" +
+                "            android:id=\"@+id/btn\"\n" +
+                "            android:layout_width=\"match_parent\"\n" +
+                "            android:layout_height=\"wrap_content\" />\n"));
+
         dataArrayListSource.add(new Data("EditText","A user interface element for entering and modifying text"));
         dataArrayListSource.add(new Data("ImageView","A user Interface to display Image files"));
         dataArrayListSource.add(new Data("SnackBar","Snackbars show a brief message at the bottom of the mobile screen"));
@@ -153,9 +176,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                     adapter=new Adapter(dataArrayListResult,MainActivity.this);
                     listRecyclerView.setAdapter(adapter);
+                    banner.setVisibility(View.GONE);
                 }else{
                     adapter=new Adapter(dataArrayListSource,MainActivity.this);
                     listRecyclerView.setAdapter(adapter);
+                    banner.setVisibility(View.VISIBLE);
                 }
                 return true;
             }

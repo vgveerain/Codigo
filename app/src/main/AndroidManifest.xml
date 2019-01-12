@@ -14,10 +14,7 @@
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
-            android:theme="@style/MyTheme2"
-            >
-
-        </activity>
+            android:theme="@style/MyTheme2"></activity>
         <activity
             android:name=".EdittextActivity"
             android:parentActivityName=".MainActivity" />
@@ -42,37 +39,37 @@
         <activity
             android:name=".WebviewActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".LoginActivity"
+        <activity
+            android:name=".LoginActivity"
             android:launchMode="singleTop"
-            android:theme="@style/MyTheme2"
-            />
+            android:theme="@style/MyTheme2" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".ProfileActivity"
-            android:parentActivityName=".MainActivity"
-            />
-        <activity android:name=".TextClockActivity"
-            android:parentActivityName=".MainActivity"
-            />
-        <activity android:name=".DatePickerActivity"
-            android:parentActivityName=".MainActivity"
-            />
-        <activity android:name=".ListViewActivity"
-            android:parentActivityName=".MainActivity"
-            />
-        <activity android:name=".SnackBarActivity"
-            android:parentActivityName=".MainActivity"
-            />
-        <activity android:name=".RadioButtonActivity"
-            android:parentActivityName=".MainActivity"
-            />
-        <activity android:name=".Splash"
+        <activity
+            android:name=".ProfileActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".TextClockActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DatePickerActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ListViewActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".SnackBarActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".RadioButtonActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Splash"
             android:launchMode="singleTop"
-            android:theme="@style/MyTheme"
-            >
+            android:theme="@style/MyTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -80,6 +77,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".buttonV2"></activity>
     </application>
 
 </manifest>

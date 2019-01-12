@@ -61,9 +61,10 @@
                       <PersistentState>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="333333" />
-                            <entry key="outputName" value="ic_android_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\vgvee" />
+                            <entry key="outputName" value="ic_book_fragment_background" />
+                            <entry key="sourceFile" value="C:\Users\vgvee\Desktop\Android Assets\book_fragment_background.svg" />
                           </map>
                         </option>
                       </PersistentState>

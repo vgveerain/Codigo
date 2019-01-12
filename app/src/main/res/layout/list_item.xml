@@ -56,13 +56,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
                 android:layout_marginRight="11dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="12dp"
                 android:fontFamily="@font/roboto"
                 android:textSize="13sp"
                 android:layout_marginBottom="2dp"
                 android:textStyle="normal" />
         </LinearLayout>
-
     </LinearLayout>
 </android.support.v7.widget.CardView>
 </LinearLayout>

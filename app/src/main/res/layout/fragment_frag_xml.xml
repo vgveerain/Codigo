@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/book_fragment_background"
+    tools:context=".FragXML"
+    android:padding="25dp">
+
+    <br.tiagohm.codeview.CodeView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/xmlCodeView"
+        app:cv_font_size="10"
+        app:cv_start_line_number="1"
+        app:cv_show_line_number="true"
+        app:cv_wrap_line="true"
+        app:cv_zoom_enable="true">
+
+    </br.tiagohm.codeview.CodeView>
+
+</FrameLayout>

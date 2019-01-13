@@ -57,12 +57,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                    intent.putExtra("textview",d);
                    context.startActivity(intent);
                 }
-                else if(d.getName()=="Button"){
-                    Intent intent= new Intent(context,ButtonActivity.class);
+                else if(d.getName()=="Button2"){
+                    Intent intent= new Intent(context,buttonV2.class);
                     d.progress=true;
                     d.setProgress(true);
                     Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("button",d);
+                    Picasso.get().load(d.img).into(viewHolder.androidImage);
                     context.startActivity(intent);
 
                 } else if(d.getName()=="SnackBar"){

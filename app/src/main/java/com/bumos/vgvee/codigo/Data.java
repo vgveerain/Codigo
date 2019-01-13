@@ -8,7 +8,15 @@ public class Data implements Parcelable {
     String desc;
     int img;
     public boolean progress = false;
+    String java, xml;
 
+    public Data(String name, String desc, int img, String java, String xml) {
+        this.name = name;
+        this.desc = desc;
+        this.img = img;
+        this.java = java;
+        this.xml = xml;
+    }
 
     public boolean isProgress() {
         return progress;

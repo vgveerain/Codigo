@@ -31,6 +31,7 @@ public class Data implements Parcelable {
         }
     };
 
+
     public String getJava() {
         return java;
     }
@@ -77,6 +78,12 @@ public class Data implements Parcelable {
         this.desc = desc;
     }
 
+    public Data(String name, String desc, int img, String java) {
+        this.name = name;
+        this.desc = desc;
+        this.img = img;
+        this.java = java;
+    }
 
     public String getName() {
         return name;

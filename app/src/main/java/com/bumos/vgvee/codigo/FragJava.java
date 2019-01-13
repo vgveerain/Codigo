@@ -73,7 +73,7 @@ public class FragJava extends Fragment {
                 .setCode(data.java)
                 .setLanguage(Language.JAVA)
                 .setWrapLine(true)
-                .setFontSize(10)
+                .setFontSize(15)
                 .setZoomEnabled(true)
                 .setShowLineNumber(true)
                 .setStartLineNumber(1)

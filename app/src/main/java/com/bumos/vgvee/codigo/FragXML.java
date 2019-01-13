@@ -65,7 +65,7 @@ public class FragXML extends Fragment {
                 .setCode(data.xml)
                 .setLanguage(Language.XML)
                 .setWrapLine(true)
-                .setFontSize(10)
+                .setFontSize(15)
                 .setZoomEnabled(true)
                 .setShowLineNumber(true)
                 .setStartLineNumber(1)

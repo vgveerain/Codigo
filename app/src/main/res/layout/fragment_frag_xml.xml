@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/xmlCodeView"
-            app:cv_font_size="13"
+            app:cv_font_size="18"
             app:cv_start_line_number="1"
             app:cv_show_line_number="true"
             app:cv_wrap_line="true"

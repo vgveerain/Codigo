@@ -34,29 +34,27 @@ public class FragJava extends Fragment {
         // Required empty public constructor
     }
 
+    public static FragJava newInstance(Data d) {
+
+        Bundle args = new Bundle();
+        args.putParcelable("data", d);
+
+        FragJava fragment = new FragJava();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        data = getArguments().getParcelable("data");
-        Log.e("TAG", ""+data.java);
+//        data = getArguments().getParcelable("data");
+//        Log.e("TAG", ""+data.java);
 
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_frag_java, container, false);
-        javaCodeView = view.findViewById(R.id.javaCodeView);
-        javaCodeView
-                .setTheme(Theme.AGATE)
-                .setCode("wassup")
-                .setLanguage(Language.JAVA)
-                .setWrapLine(true)
-                .setFontSize(10)
-                .setZoomEnabled(true)
-                .setShowLineNumber(true)
-                .setStartLineNumber(1)
-                .apply();
-
         return view;
     }
 
@@ -64,5 +62,21 @@ public class FragJava extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        Bundle bundle = getArguments();
+        Data data = (Data)bundle.getParcelable("data");
+        Log.e("TAG",""+data.java);
+
+        javaCodeView = view.findViewById(R.id.javaCodeView);
+        javaCodeView
+                .setTheme(Theme.ANDROIDSTUDIO)
+                .setCode(data.java)
+                .setLanguage(Language.JAVA)
+                .setWrapLine(true)
+                .setFontSize(10)
+                .setZoomEnabled(true)
+                .setShowLineNumber(true)
+                .setStartLineNumber(1)
+                .apply();
     }
 }

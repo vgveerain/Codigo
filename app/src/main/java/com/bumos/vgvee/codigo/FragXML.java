@@ -32,13 +32,21 @@ public class FragXML extends Fragment {
         // Required empty public constructor
     }
 
+    public static FragXML newInstance(Data d) {
 
+        Bundle args = new Bundle();
+        args.putParcelable("data", d);
+
+        FragXML fragment = new FragXML();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        data = getArguments().getParcelable("data");
+//        data = getArguments().getParcelable("data");
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_frag_xml, container, false);
@@ -48,10 +56,13 @@ public class FragXML extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Bundle bundle = getArguments();
+        Data data = (Data)bundle.getParcelable("data");
+
         CodeView xmlCodeView = view.findViewById(R.id.xmlCodeView);
         xmlCodeView
-                .setTheme(Theme.GITHUB)
-                .setCode(data.java)
+                .setTheme(Theme.ANDROIDSTUDIO)
+                .setCode(data.xml)
                 .setLanguage(Language.XML)
                 .setWrapLine(true)
                 .setFontSize(10)

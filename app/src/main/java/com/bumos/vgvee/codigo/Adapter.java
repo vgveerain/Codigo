@@ -46,6 +46,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         final Data d=arrayList.get(i);
         viewHolder.topicTitle.setText(d.getName());
         viewHolder.topicDesc.setText(d.getDesc());
+//        Picasso.get().load(d.img).into(viewHolder.androidImage);
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +64,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     d.setProgress(true);
                     Log.e("TAGadapter",""+d.progress);
                     intent.putExtra("button",d);
-                    Picasso.get().load(d.img).into(viewHolder.androidImage);
                     context.startActivity(intent);
 
                 } else if(d.getName()=="SnackBar"){

@@ -5,19 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragImageView">
+    tools:context=".FragImageView"
+    android:background="@drawable/book_fragment_background"
+    android:padding="30dp">
 
     <TextView
         android:layout_width="match_parent"
         android:id="@+id/tvtitle"
-        android:textSize="32sp"
-        android:layout_height="wrap_content" />
+        android:textSize="28sp"
+        android:layout_height="wrap_content"
+        android:textColor="#222222"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:id="@+id/tvdesc"
-        android:textSize="32sp"
-        android:layout_height="wrap_content" />
+        android:textSize="18sp"
+        android:layout_height="wrap_content"
+        android:textColor="#333333"
+        android:layout_margin="5dp"/>
     <ImageView
         android:layout_width="match_parent"
         android:id="@+id/imageView"

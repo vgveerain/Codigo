@@ -24,11 +24,9 @@
         <ImageView
             android:layout_marginTop="4dp"
             android:id="@+id/androidImage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="2dp"
-            android:src="@drawable/ic_icon"
-            android:layout_gravity="center"
             android:layout_margin="10dp"
             />
         <LinearLayout

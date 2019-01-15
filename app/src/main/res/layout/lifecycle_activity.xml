@@ -7,41 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".LifecycleActivity">
 
-    <ScrollView
+    <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/viewPager">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvtitle"
-                android:layout_marginTop="2dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="5dp"
-                android:textStyle="bold"
-                android:textSize="25sp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_marginRight="5dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginBottom="5dp"
-                android:textSize="15sp"
-                android:id="@+id/tvdesc"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:id="@+id/iv"
-                android:layout_marginBottom="5dp"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </ScrollView>
+    </android.support.v4.view.ViewPager>
 
 </RelativeLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragTextClock"
+    android:background="@drawable/book_fragment_background"
+    android:padding="30dp"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tcTitle"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/roboto"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginRight="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:fontFamily="@font/roboto"
+        android:layout_marginBottom="5dp"
+        android:textSize="15sp"
+        android:id="@+id/tcDesc"/>
+
+    <TextClock
+        android:layout_width="wrap_content"
+        android:id="@+id/textClock"
+        android:format12Hour="hh:mm:ss"
+        android:layout_gravity="center"
+        android:textSize="40sp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

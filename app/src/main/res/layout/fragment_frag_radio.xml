@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragRadio"
+    android:padding="30dp"
+    android:background="@drawable/book_fragment_background"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rdTitle"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/roboto"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginRight="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:fontFamily="@font/roboto"
+        android:layout_marginBottom="5dp"
+        android:textSize="15sp"
+        android:id="@+id/rdDesc"/>
+
+
+    <RadioGroup
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:id="@+id/radiogroup"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:text="1"
+            android:id="@+id/radiobutton1"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:text="2"
+            android:id="@+id/radiobutton2"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:text="3"
+            android:id="@+id/radiobutton3"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+</LinearLayout>

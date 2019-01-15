@@ -101,7 +101,24 @@ public class MainActivity extends AppCompatActivity {
         //Seriously? WTH Shubham!
         dataArrayListSource.add(new Data("New Project","Creating a new android project"));
         dataArrayListSource.add(new Data("Activity LifeCycle","Understanding the lifecycle of an android application"));
-        dataArrayListSource.add(new Data("TextView","A user interface element that displays text to the user."));
+        dataArrayListSource.add(new Data("TextView","A user interface element that displays text to the user.",R.drawable.text,"@Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\n" +
+                "        setContentView(R.layout.activity_main);\n" +
+                "        TextView textView=findViewById(R.id.textView);\n" +
+                "        textView.setOnClickListener(new View.OnClickListener() {\n" +
+                "            @Override\n" +
+                "            public void onClick(View v) {\n" +
+                "                Toast.makeText(MainActivity.this, \"Clicked\", Toast.LENGTH_SHORT).show();\n" +
+                "            }\n" +
+                "        });\n" +
+                "\n" +
+                "    }","<TextView\n" +
+                "        android:layout_width=\"wrap_content\"\n" +
+                "        android:textSize=\"32sp\"\n" +
+                "        android:id=\"@+id/textView\"\n" +
+                "        android:text=\"Hello World!!\"\n" +
+                "        android:layout_height=\"wrap_content\" />"));
         dataArrayListSource.add(new Data("Button","A user interface element the user can tap or click to perform an action."));
 
         dataArrayListSource.add(new Data("Button2", "A user interface element the user can tap or click to perform an action.", R.drawable.menu , "public class ButtonActivity extends AppCompatActivity {\nButton btn;\n" +
@@ -121,16 +138,256 @@ public class MainActivity extends AppCompatActivity {
                 "            android:layout_width=\"match_parent\"\n" +
                 "            android:layout_height=\"wrap_content\" />\n"));
 
-        dataArrayListSource.add(new Data("EditText","A user interface element for entering and modifying text"));
-        dataArrayListSource.add(new Data("ImageView","A user Interface to display Image files"));
-        dataArrayListSource.add(new Data("SnackBar","Snackbars show a brief message at the bottom of the mobile screen"));
-        dataArrayListSource.add(new Data("Basic Calculator","Building a calculator using the components discussed so far "));
+        dataArrayListSource.add(new Data("EditText","A user interface element for entering and modifying text",R.drawable.edit,"@Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\n" +
+                "        setContentView(R.layout.activity_main);\n" +
+                "        EditText editText=findViewById(R.id.editText);\n" +
+                "        editText.addTextChangedListener(new TextWatcher() {\n" +
+                "            @Override\n" +
+                "            public void beforeTextChanged(CharSequence s, int start, int count, int after) {\n" +
+                "\n" +
+                "            }\n" +
+                "\n" +
+                "            @Override\n" +
+                "            public void onTextChanged(CharSequence s, int start, int before, int count) {\n" +
+                "\n" +
+                "                Toast.makeText(MainActivity.this, \"\"+s, Toast.LENGTH_SHORT).show();\n" +
+                "            }\n" +
+                "\n" +
+                "            @Override\n" +
+                "            public void afterTextChanged(Editable s) {\n" +
+                "\n" +
+                "            }\n" +
+                "        });\n" +
+                "\n" +
+                "    }","<EditText\n" +
+                "        android:layout_width=\"200dp\"\n" +
+                "        android:textSize=\"32sp\"\n" +
+                "        android:id=\"@+id/editText\"\n" +
+                "        android:layout_height=\"wrap_content\" />"));
+        dataArrayListSource.add(new Data("ImageView","A user Interface to display Image files",R.drawable.gallery,"@Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\n" +
+                "        setContentView(R.layout.activity_main);\n" +
+                "        ImageView imageView=findViewById(R.id.imageView);\n" +
+                "        imageView.setImageResource(R.drawable.img);\n" +
+                "    }","<ImageView\n" +
+                "        android:layout_width=\"match_parent\"\n" +
+                "        android:id=\"@+id/imageView\"\n" +
+                "        android:layout_height=\"wrap_content\" />"));
+        dataArrayListSource.add(new Data("SnackBar","Snackbars show a brief message at the bottom of the mobile screen",R.drawable.snackbar,"@Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\n" +
+                "        setContentView(R.layout.activity_main);\n" +
+                "        Button button = findViewById(R.id.button);\n" +
+                "        button.setOnClickListener(new View.OnClickListener() {\n" +
+                "            @Override\n" +
+                "            public void onClick(View v) {\n" +
+                "                Snackbar snackbar=Snackbar.make(v,\"Hello World!\",Snackbar.LENGTH_SHORT);\n" +
+                "                snackbar.show();\n" +
+                "            }\n" +
+                "        });","<Button\n" +
+                "        android:layout_width=\"wrap_content\"\n" +
+                "        android:text=\"Click Me!\"\n" +
+                "        android:id=\"@+id/button\"\n" +
+                "        android:layout_height=\"wrap_content\" />"));
+
+
+        dataArrayListSource.add(new Data("Basic Calculator","Building a calculator using the components discussed so far.",R.drawable.math,"@Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\n" +
+                "        setContentView(R.layout.activity_main);\n" +
+                "        final EditText num1=findViewById(R.id.editText1);\n" +
+                "        final EditText num2=findViewById(R.id.editText2);\n" +
+                "        final TextView textView=findViewById(R.id.textView);\n" +
+                "        Button add,subtract,multiply,div;\n" +
+                "        add=findViewById(R.id.add);\n" +
+                "        subtract=findViewById(R.id.subtract);\n" +
+                "        multiply=findViewById(R.id.multiply);\n" +
+                "        div=findViewById(R.id.div);\n" +
+                "        add.setOnClickListener(new View.OnClickListener() {\n" +
+                "            @Override\n" +
+                "            public void onClick(View v) {\n" +
+                "                int a=Integer.parseInt(num1.getText().toString());\n" +
+                "                int b=Integer.parseInt(num2.getText().toString());\n" +
+                "                int c=a+b;\n" +
+                "                textView.setText(\"\"+c);\n" +
+                "            }\n" +
+                "        });\n" +
+                "        multiply.setOnClickListener(new View.OnClickListener() {\n" +
+                "            @Override\n" +
+                "            public void onClick(View v) {\n" +
+                "                int a=Integer.parseInt(num1.getText().toString());\n" +
+                "                int b=Integer.parseInt(num2.getText().toString());\n" +
+                "                int c=a*b;\n" +
+                "                textView.setText(\"\"+c);\n" +
+                "            }\n" +
+                "        });\n" +
+                "        div.setOnClickListener(new View.OnClickListener() {\n" +
+                "            @Override\n" +
+                "            public void onClick(View v) {\n" +
+                "                int a=Integer.parseInt(num1.getText().toString());\n" +
+                "                int b=Integer.parseInt(num2.getText().toString());\n" +
+                "                int c=a/b;\n" +
+                "                textView.setText(\"\"+c);\n" +
+                "            }\n" +
+                "        });\n" +
+                "        subtract.setOnClickListener(new View.OnClickListener() {\n" +
+                "            @Override\n" +
+                "            public void onClick(View v) {\n" +
+                "                int a=Integer.parseInt(num1.getText().toString());\n" +
+                "                int b=Integer.parseInt(num2.getText().toString());\n" +
+                "                int c=a-b;\n" +
+                "                textView.setText(\"\"+c);\n" +
+                "            }\n" +
+                "        });\n" +
+                "    }","<LinearLayout\n" +
+                "    android:orientation=\"vertical\"\n" +
+                "    xmlns:android=\"http://schemas.android.com/apk/res/android\"\n" +
+                "    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n" +
+                "    xmlns:tools=\"http://schemas.android.com/tools\"\n" +
+                "    android:layout_width=\"match_parent\"\n" +
+                "    android:layout_height=\"match_parent\"\n" +
+                "    tools:context=\".MainActivity\">\n" +
+                "\n" +
+                "    <LinearLayout\n" +
+                "        android:layout_width=\"wrap_content\"\n" +
+                "        android:orientation=\"horizontal\"\n" +
+                "        android:layout_height=\"wrap_content\">\n" +
+                "        <EditText\n" +
+                "            android:layout_margin=\"10dp\"\n" +
+                "            android:layout_width=\"60dp\"\n" +
+                "            android:inputType=\"number\"\n" +
+                "            android:textSize=\"25sp\"\n" +
+                "            android:id=\"@+id/editText1\"\n" +
+                "            android:layout_height=\"60dp\" />\n" +
+                "\n" +
+                "        <EditText\n" +
+                "            android:layout_width=\"60dp\"\n" +
+                "            android:textSize=\"25sp\"\n" +
+                "            android:inputType=\"number\"\n" +
+                "            android:layout_margin=\"10dp\"\n" +
+                "            android:id=\"@+id/editText2\"\n" +
+                "            android:layout_height=\"60dp\" />\n" +
+                "\n" +
+                "        <TextView\n" +
+                "            android:layout_width=\"wrap_content\"\n" +
+                "            android:textSize=\"25sp\"\n" +
+                "            android:layout_margin=\"10dp\"\n" +
+                "            android:id=\"@+id/textView\"\n" +
+                "            android:layout_height=\"wrap_content\" />\n" +
+                "\n" +
+                "    </LinearLayout>\n" +
+                "\n" +
+                "    <LinearLayout\n" +
+                "        android:layout_width=\"wrap_content\"\n" +
+                "        android:orientation=\"horizontal\"\n" +
+                "        android:layout_height=\"wrap_content\">\n" +
+                "        <Button\n" +
+                "            android:layout_width=\"wrap_content\"\n" +
+                "            android:text=\"+\"\n" +
+                "            android:id=\"@+id/add\"\n" +
+                "            android:layout_height=\"wrap_content\" />\n" +
+                "        <Button\n" +
+                "            android:layout_width=\"wrap_content\"\n" +
+                "            android:text=\"-\"\n" +
+                "            android:id=\"@+id/subtract\"\n" +
+                "            android:layout_height=\"wrap_content\" />\n" +
+                "        <Button\n" +
+                "            android:layout_width=\"wrap_content\"\n" +
+                "            android:text=\"/\"\n" +
+                "            android:id=\"@+id/div\"\n" +
+                "            android:layout_height=\"wrap_content\" />\n" +
+                "        <Button\n" +
+                "            android:layout_width=\"wrap_content\"\n" +
+                "            android:text=\"*\"\n" +
+                "            android:id=\"@+id/multiply\"\n" +
+                "            android:layout_height=\"wrap_content\" />\n" +
+                "\n" +
+                "    </LinearLayout>\n" +
+                "\n" +
+                "</LinearLayout>"));
 //        dataArrayListSource.add(new Data("CardView","The CardView API is an easy way to display information inside cards"));
-        dataArrayListSource.add(new Data("WebView","WebView is a view that display web pages inside an application"));
-        dataArrayListSource.add(new Data("TextClock","TextClock is a UI control which is used to show the current date or time as a formatted string."));
-        dataArrayListSource.add(new Data("DatePicker","Android DatePicker is a widget to select date. It allows you to select date by day, month and year. "));
+        dataArrayListSource.add(new Data("WebView","WebView is a view that display web pages inside an application",R.drawable.website,"@Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\n" +
+                "        setContentView(R.layout.activity_main2);\n" +
+                "        WebView webView=findViewById(R.id.webView);\n" +
+                "        webView.loadUrl(\"https://www.google.com/\");\n" +
+                "    }","<WebView\n" +
+                "        android:layout_width=\"match_parent\"\n" +
+                "        android:id=\"@+id/webView\"\n" +
+                "        android:layout_height=\"300dp\"></WebView>"));
+
+        dataArrayListSource.add(new Data("TextClock","TextClock is a UI control which is used to show the current date or time as a formatted string.",R.drawable.time,"","<TextClock\n" +
+                "        android:layout_width=\"match_parent\"\n" +
+                "        android:textSize=\"32sp\"\n" +
+                "        android:id=\"@+id/textClock\"\n" +
+                "        android:format12Hour=\"hh:mm:ss\"\n" +
+                "        android:layout_height=\"match_parent\" />"));
+        dataArrayListSource.add(new Data("DatePicker","Android DatePicker is a widget to select date. It allows you to select date by day, month and year.",R.drawable.calendar,"@Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\n" +
+                "        setContentView(R.layout.activity_main2);\n" +
+                "        final DatePicker datePicker=findViewById(R.id.datePicker);\n" +
+                "        Calendar calendar=Calendar.getInstance();\n" +
+                "        datePicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {\n" +
+                "            @Override\n" +
+                "            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {\n" +
+                "                Toast.makeText(Main2Activity.this, \"\"+datePicker.getDayOfMonth()+\"-\"+datePicker.getMonth()+\"-\"+datePicker.getYear(), Toast.LENGTH_SHORT).show();\n" +
+                "            }\n" +
+                "        });\n" +
+                "\n" +
+                "    }","<DatePicker\n" +
+                "       android:layout_width=\"match_parent\"\n" +
+                "       android:id=\"@+id/datePicker\"\n" +
+                "       android:layout_height=\"match_parent\"></DatePicker>"));
         dataArrayListSource.add(new Data("ListView","ListView is a view group that displays a list of scrollable items."));
-        dataArrayListSource.add(new Data("RadioButton","Radio buttons allow the user to select one option from a set. You should use radio buttons for optional sets that are mutually exclusive if you think that the user needs to see all available options side-by-side."));
+        dataArrayListSource.add(new Data("RadioButton","Radio buttons allow the user to select one option from a set.",R.drawable.menu,"@Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\n" +
+                "        setContentView(R.layout.activity_main2);\n" +
+                "        RadioGroup radioGroup=findViewById(R.id.radioGroup);\n" +
+                "        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {\n" +
+                "            @Override\n" +
+                "            public void onCheckedChanged(RadioGroup group, int checkedId) {\n" +
+                "                switch(checkedId){\n" +
+                "\n" +
+                "                    case R.id.radioButton1:\n" +
+                "                        Toast.makeText(Main2Activity.this, \"1\", Toast.LENGTH_SHORT).show();\n" +
+                "                        break;\n" +
+                "                    case R.id.radioButton2:\n" +
+                "                        Toast.makeText(Main2Activity.this, \"2\", Toast.LENGTH_SHORT).show();\n" +
+                "                        break;\n" +
+                "                    case R.id.radioButton3:\n" +
+                "                        Toast.makeText(Main2Activity.this, \"3\", Toast.LENGTH_SHORT).show();\n" +
+                "                        break;\n" +
+                "                }\n" +
+                "            }\n" +
+                "        });\n" +
+                "\n" +
+                "    }","<RadioGroup\n" +
+                "        android:layout_width=\"match_parent\"\n" +
+                "        android:id=\"@+id/radioGroup\"\n" +
+                "        android:layout_height=\"match_parent\">\n" +
+                "\n" +
+                "        <RadioButton\n" +
+                "            android:layout_width=\"wrap_content\"\n" +
+                "            android:id=\"@+id/radioButton1\"\n" +
+                "            android:text=\"1\"\n" +
+                "            android:layout_height=\"wrap_content\" />\n" +
+                "        <RadioButton\n" +
+                "            android:layout_width=\"wrap_content\"\n" +
+                "            android:id=\"@+id/radioButton2\"\n" +
+                "            android:text=\"2\"\n" +
+                "            android:layout_height=\"wrap_content\" />\n" +
+                "        <RadioButton\n" +
+                "            android:layout_width=\"wrap_content\"\n" +
+                "            android:id=\"@+id/radioButton3\"\n" +
+                "            android:text=\"3\"\n" +
+                "            android:layout_height=\"wrap_content\" />\n" +
+                "        </RadioGroup>"));
 
 
         //SharedPreference

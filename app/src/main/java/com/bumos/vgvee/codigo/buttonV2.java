@@ -55,13 +55,16 @@ public class buttonV2 extends AppCompatActivity {
                 case 1:
                     FragXML fragXML = FragXML.newInstance(getIntent().getParcelableExtra("button"));
                     return fragXML;
+                case 2:
+                    FragButton fragButton = FragButton.newInstance(getIntent().getParcelableExtra("button"));
+                    return fragButton;
             }
             return null;
         }
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
     }
 }

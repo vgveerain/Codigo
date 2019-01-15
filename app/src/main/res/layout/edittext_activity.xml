@@ -7,80 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".EdittextActivity">
 
-    <ScrollView
+    <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/viewPager">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvtitle"
-                android:textStyle="bold"
-                android:layout_marginTop="2dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="5dp"
-                android:textSize="25sp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_marginRight="5dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginBottom="5dp"
-                android:textSize="15sp"
-                android:id="@+id/tvdesc"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Step 1: In XML"
-                android:layout_marginLeft="5dp"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ivxml"
-                android:src="@drawable/edtbuttonxml"
-                android:layout_marginBottom="5dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:textStyle="bold"
-                android:layout_marginRight="5dp"
-                android:text="Step 2: In Java"
-                android:textSize="25sp"
-                />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="250dp"
-                android:id="@+id/ivjava"
-                android:src="@drawable/edtbuttonjava"
-                android:layout_marginBottom="5dp"
-                />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:id="@+id/et"
-                android:textSize="15sp"
-                android:layout_height="wrap_content" />
-            <Button
-                android:layout_width="wrap_content"
-                android:id="@+id/btn"
-                android:text="Click"
-                android:layout_gravity="center"
-                android:layout_marginBottom="5dp"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </ScrollView>
 </RelativeLayout>

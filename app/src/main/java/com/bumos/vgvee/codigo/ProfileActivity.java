@@ -1,6 +1,7 @@
 package com.bumos.vgvee.codigo;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
@@ -12,10 +13,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -28,6 +33,8 @@ public class ProfileActivity extends AppCompatActivity {
     TextView percentProgress;
     ProgressBar progressBar;
     ImageView imageView;
+    Button button;
+    TextView textView,textView2;
     private static final int RequestCode= 123;
 
 
@@ -40,6 +47,43 @@ public class ProfileActivity extends AppCompatActivity {
         imageView = findViewById(R.id.profileIV);
         progressBar = findViewById(R.id.progressBar);
         percentProgress = findViewById(R.id.percentProgress);
+        button = findViewById(R.id.edit);
+        textView =findViewById(R.id.personName);
+        textView2 = findViewById(R.id.personEmail);
+
+        final View alertView = LayoutInflater.from(ProfileActivity.this).inflate(R.layout.dialog_layout, null, true);
+        final AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setTitle("Edit")
+                .setCancelable(false)
+                .setMessage("Please enter Name and Email")
+                .setView(alertView)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        EditText name = alertView.findViewById(R.id.edtName);
+                        EditText email = alertView.findViewById(R.id.edtEmail);
+                        textView.setText(name.getText().toString());
+                        textView2.setText(email.getText().toString());
+                        name.setText("");
+                        email.setText("");
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        Toast.makeText(ProfileActivity.this, "As You Wish", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .create();
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                alertDialog.show();
+            }
+        });
 
         progressBar.setProgress(progress);
         percentProgress.setText(""+progress+"%");

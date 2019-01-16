@@ -99,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
         dataArrayListSource = new ArrayList<>();
 
         //Seriously? WTH Shubham!
-        dataArrayListSource.add(new Data("New Project","Creating a new android project", R.drawable.ic_icon));
-        dataArrayListSource.add(new Data("Activity LifeCycle","Understanding the lifecycle of an android application", R.drawable.ic_icon));
+        dataArrayListSource.add(new Data("New Project","Creating a new android project", R.drawable.training));
+        dataArrayListSource.add(new Data("Activity LifeCycle","Understanding the lifecycle of an android applica00tion", R.drawable.synchronize));
         dataArrayListSource.add(new Data("TextView","A user interface element that displays text to the user.",R.drawable.text,"@Override\n" +
                 "    protected void onCreate(Bundle savedInstanceState) {\n" +
                 "        super.onCreate(savedInstanceState);\n" +
@@ -342,7 +342,7 @@ public class MainActivity extends AppCompatActivity {
                 "       android:layout_width=\"match_parent\"\n" +
                 "       android:id=\"@+id/datePicker\"\n" +
                 "       android:layout_height=\"match_parent\"></DatePicker>"));
-        dataArrayListSource.add(new Data("ListView","ListView is a view group that displays a list of scrollable items.", R.drawable.ic_icon));
+        dataArrayListSource.add(new Data("ListView","ListView is a view group that displays a list of scrollable items.", R.drawable.list));
         dataArrayListSource.add(new Data("RadioButton","Radio buttons allow the user to select one option from a set.",R.drawable.menu,"@Override\n" +
                 "    protected void onCreate(Bundle savedInstanceState) {\n" +
                 "        super.onCreate(savedInstanceState);\n" +

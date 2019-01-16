@@ -48,18 +48,18 @@ public class ImageviewActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int i) {
             switch (i){
-                case 0:
-                    FragJava fragJava = FragJava.newInstance(getIntent().getParcelableExtra("imageview"));
-                    return fragJava;
-                case 1:
-                    FragXML fragXML = FragXML.newInstance(getIntent().getParcelableExtra("imageview"));
-                    return fragXML;
-                case 2:
-                    FragImageView fragImageView=FragImageView.newInstance(getIntent().getParcelableExtra("imageview"));
-                    return fragImageView;
-            }
-            return null;
+            case 0:
+                FragJava fragJava = FragJava.newInstance(getIntent().getParcelableExtra("imageview"));
+                return fragJava;
+            case 1:
+                FragXML fragXML = FragXML.newInstance(getIntent().getParcelableExtra("imageview"));
+                return fragXML;
+            case 2:
+                FragImageView fragImageView=FragImageView.newInstance(getIntent().getParcelableExtra("imageview"));
+                return fragImageView;
         }
+            return null;
+    }
 
         @Override
         public int getCount() {

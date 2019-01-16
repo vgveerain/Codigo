@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -33,7 +34,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView percentProgress;
     ProgressBar progressBar;
     ImageView imageView;
-    Button button;
+    ImageButton button;
     TextView textView,textView2;
     private static final int RequestCode= 123;
 
@@ -99,7 +100,6 @@ public class ProfileActivity extends AppCompatActivity {
                     ActivityCompat.requestPermissions(ProfileActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, RequestCode);
                 } else {
                     pickImage();
-
                 }
             }
 

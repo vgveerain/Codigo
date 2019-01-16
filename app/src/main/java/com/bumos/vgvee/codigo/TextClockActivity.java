@@ -51,12 +51,9 @@ public class TextClockActivity extends AppCompatActivity {
         public Fragment getItem(int i) {
             switch (i) {
                 case 0:
-                    FragJava fragJava = FragJava.newInstance(getIntent().getParcelableExtra("textclock"));
-                    return fragJava;
-                case 1:
                     FragXML fragXML = FragXML.newInstance(getIntent().getParcelableExtra("textclock"));
                     return fragXML;
-                case 2:
+                case 1:
                     FragTextClock fragTextClock = FragTextClock.newInstance(getIntent().getParcelableExtra("textclock"));
                     return fragTextClock;
             }
@@ -65,7 +62,7 @@ public class TextClockActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 3;
+            return 2;
         }
     }
 }

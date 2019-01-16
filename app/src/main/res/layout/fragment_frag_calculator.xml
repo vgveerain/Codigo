@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/book_fragment_background"
+    android:padding="30dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvtitle"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:textColor="#222222"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
+        android:textColor="#333333"
+        android:id="@+id/tvdesc"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="70sp"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/num1"
+            android:hint="NUM1"
+            android:layout_marginBottom="5dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="70sp"
+            android:id="@+id/num2"
+            android:hint="NUM2"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="70dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:text="+"
+            android:id="@+id/add"
+            android:layout_marginBottom="5dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_width="wrap_content"
+            android:text="-"
+            android:id="@+id/sub"
+            android:layout_marginBottom="5dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_width="wrap_content"
+            android:text="*"
+            android:id="@+id/mult"
+            android:layout_marginBottom="5dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_width="wrap_content"
+            android:text="/"
+            android:id="@+id/div"
+            android:layout_marginBottom="5dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

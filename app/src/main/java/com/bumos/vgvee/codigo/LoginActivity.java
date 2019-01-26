@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,20 +32,31 @@ public class LoginActivity extends AppCompatActivity {
     Button pSend;
     TextView textView,textView2;
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBacks;
-    FirebaseAuth mAuth;
     ImageView imageView;
     PhoneAuthProvider.ForceResendingToken mResendToken;
     String mVerificationId;
     private int btnType=0;
+    String phoneNumber;
+
+    public User user;
+
+    FirebaseAuth mAuth;
+    DatabaseReference rootRef;
+    FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        mAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        rootRef = firebaseDatabase.getReference();
+
+        user = new User();
+
         pNum = findViewById(R.id.pNumber);
         pSend = findViewById(R.id.sNumber);
-        mAuth = FirebaseAuth.getInstance();
         textView = findViewById(R.id.tView1);
         textView2 = findViewById(R.id.tView2);
         imageView = findViewById(R.id.loginImage);
@@ -53,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onClick(View v) {
 
                     if (btnType == 0) {
-                        String phoneNumber = pNum.getText().toString();
+                        phoneNumber = pNum.getText().toString();
 
                         if (phoneNumber.length() == 10) {
 
@@ -132,9 +145,14 @@ public class LoginActivity extends AppCompatActivity {
 
                             Toast.makeText(LoginActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
 
-                            FirebaseUser user = task.getResult().getUser();
+//                            FirebaseUser user = task.getResult().getUser();
 
-                            Intent newIntent = new Intent(LoginActivity.this,MainActivity.class);
+                            user.PhoneNum = phoneNumber;
+
+                            rootRef.child(mAuth.getCurrentUser().getUid());
+
+                            Intent newIntent = new Intent(LoginActivity.this,ReferralActivity.class);
+                            newIntent.putExtra("user", user);
                             startActivity(newIntent);
                             finish();
 

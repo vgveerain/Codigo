@@ -20,7 +20,6 @@
             android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="150dp"
-            android:src="@drawable/referral"
             />
 
     </LinearLayout>

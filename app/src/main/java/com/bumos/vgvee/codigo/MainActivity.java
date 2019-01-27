@@ -99,8 +99,10 @@ public class MainActivity extends AppCompatActivity {
         dataArrayListSource = new ArrayList<>();
 
         //Seriously? WTH Shubham!
+        dataArrayListSource.add(new Data("What is Android","Android is a software package and linux based operating system for mobile devices such as tablet computers and smart phones.",R.drawable.and_icon));
         dataArrayListSource.add(new Data("New Project","Creating a new android project", R.drawable.training));
-        dataArrayListSource.add(new Data("Activity LifeCycle","Understanding the lifecycle of an android applica00tion", R.drawable.synchronize));
+        dataArrayListSource.add(new Data("Application Components","Application components are the essential building blocks of an Android application.",R.drawable.component_icon));
+        dataArrayListSource.add(new Data("Activity LifeCycle","Understanding the lifecycle of an android application", R.drawable.synchronize));
         dataArrayListSource.add(new Data("TextView","A user interface element that displays text to the user.",R.drawable.text,"@Override\n" +
                 "    protected void onCreate(Bundle savedInstanceState) {\n" +
                 "        super.onCreate(savedInstanceState);\n" +

@@ -31,6 +31,14 @@
           }
         },
         {
+          "client_id": "650756311542-7jiksvgd2tg62u0o930ohrn4or9iv1mv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bumos.vgvee.codigo",
+            "certificate_hash": "41d97374b1364615d3d3a027defb63192054ee28"
+          }
+        },
+        {
           "client_id": "650756311542-mqlsqrg7j53mpc4d8hmhpq3hjhjlafbl.apps.googleusercontent.com",
           "client_type": 3
         }

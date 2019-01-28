@@ -14,8 +14,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".Components"></activity>
         <activity android:name=".Android" />
+=======
+        <activity android:name=".TimePickerActivity"></activity>
+        <activity
+            android:name=".SwitchActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RatingBarActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SpinnerActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SeekBarActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+>>>>>>> f1b1184577fd51b318edab05f8bd1fff810b78e6
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

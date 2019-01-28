@@ -139,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                 "            android:layout_width=\"match_parent\"\n" +
                 "            android:layout_height=\"wrap_content\" />\n"));
 
+
         dataArrayListSource.add(new Data("EditText","A user interface element for entering and modifying text",R.drawable.edit,"@Override\n" +
                 "    protected void onCreate(Bundle savedInstanceState) {\n" +
                 "        super.onCreate(savedInstanceState);\n" +
@@ -345,6 +346,110 @@ public class MainActivity extends AppCompatActivity {
                 "       android:id=\"@+id/datePicker\"\n" +
                 "       android:layout_height=\"match_parent\"></DatePicker>"));
         dataArrayListSource.add(new Data("ListView","ListView is a view group that displays a list of scrollable items.", R.drawable.list));
+        dataArrayListSource.add(new Data("Switch","A Switch is a two-state toggle sw widget that can select between two options.",R.drawable.sw,"@Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\n" +
+                "        setContentView(R.layout.activity_main);\n" +
+                "        Switch s=findViewById(R.id.Switch);\n" +
+                "        s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {\n" +
+                "            @Override\n" +
+                "            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {\n" +
+                "                if(isChecked){\n" +
+                "                    Toast.makeText(MainActivity.this, \"ON\", Toast.LENGTH_SHORT).show();\n" +
+                "                }\n" +
+                "                else\n" +
+                "                    Toast.makeText(MainActivity.this, \"OFF\", Toast.LENGTH_SHORT).show();\n" +
+                "            }\n" +
+                "        });\n" +
+                "    }"," <Switch\n" +
+                "        android:layout_width=\"wrap_content\"\n" +
+                "        android:id=\"@+id/Switch\"\n" +
+                "        android:layout_centerHorizontal=\"true\"\n" +
+                "        android:layout_height=\"wrap_content\" />"));
+
+        dataArrayListSource.add(new Data("TimePicker","A widget for selecting the time of day, in either 24-hour or AM/PM mode.",R.drawable.timepicker,"@Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\n" +
+                "        setContentView(R.layout.activity_main);\n" +
+                "        TimePicker timePicker=findViewById(R.id.timePicker);\n" +
+                "        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {\n" +
+                "            @Override\n" +
+                "            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {\n" +
+                "                Toast.makeText(MainActivity.this, \"\"+hourOfDay+\":\"+minute, Toast.LENGTH_SHORT).show();\n" +
+                "            }\n" +
+                "        });\n" +
+                "    }","<TimePicker\n" +
+                "        android:layout_width=\"wrap_content\"\n" +
+                "        android:id=\"@+id/timePicker\"\n" +
+                "        android:layout_height=\"wrap_content\"/>"));
+
+        dataArrayListSource.add(new Data("SeekBar","A SeekBar is an extension of ProgressBar that adds a draggable thumb.",R.drawable.seekbar,"@Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\n" +
+                "        setContentView(R.layout.activity_main);\n" +
+                "        SeekBar seekBar=findViewById(R.id.seekBar);\n" +
+                "        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {\n" +
+                "            @Override\n" +
+                "            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {\n" +
+                "                Toast.makeText(MainActivity.this, \"\"+progress, Toast.LENGTH_SHORT).show();\n" +
+                "            }\n" +
+                "\n" +
+                "            @Override\n" +
+                "            public void onStartTrackingTouch(SeekBar seekBar) {\n" +
+                "                Toast.makeText(MainActivity.this, \"Seekbar Tracking started\", Toast.LENGTH_SHORT).show();\n" +
+                "            }\n" +
+                "\n" +
+                "            @Override\n" +
+                "            public void onStopTrackingTouch(SeekBar seekBar) {\n" +
+                "                Toast.makeText(MainActivity.this, \"Seekbar tracking stopped\", Toast.LENGTH_SHORT).show();\n" +
+                "\n" +
+                "            }\n" +
+                "        });\n" +
+                "    }","<SeekBar\n" +
+                "        android:layout_width=\"match_parent\"\n" +
+                "        android:max=\"10\"\n" +
+                "        android:id=\"@+id/seekBar\"\n" +
+                "        android:layout_centerHorizontal=\"true\"\n" +
+                "        android:layout_height=\"wrap_content\" />"));
+        dataArrayListSource.add(new Data("Spinner","Spinners provide a quick way to select one value from a set.",R.drawable.spinner,"@Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\n" +
+                "        setContentView(R.layout.activity_main);\n" +
+                "        Spinner spinner=findViewById(R.id.spinner);\n" +
+                "        String[] colour={\"red\",\"blue\",\"orange\",\"purple\",\"yellow\"};\n" +
+                "        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,colour);\n" +
+                "        spinner.setAdapter(adapter);\n" +
+                "    }","<Spinner\n" +
+                "        android:layout_width=\"wrap_content\"\n" +
+                "        android:id=\"@+id/spinner\"\n" +
+                "        android:layout_centerHorizontal=\"true\"\n" +
+                "        android:layout_height=\"wrap_content\"/>"));
+        dataArrayListSource.add(new Data("RatingBar","A RatingBar is an extension of SeekBar and ProgressBar that shows a rating in stars.",R.drawable.ratingbar,"@Override\n" +
+                "    protected void onCreate(Bundle savedInstanceState) {\n" +
+                "        super.onCreate(savedInstanceState);\n" +
+                "        setContentView(R.layout.activity_main);\n" +
+                "        final RatingBar ratingBar=findViewById(R.id.ratingBar);\n" +
+                "        Button btn=findViewById(R.id.btn);\n" +
+                "        btn.setOnClickListener(new View.OnClickListener() {\n" +
+                "            @Override\n" +
+                "            public void onClick(View v) {\n" +
+                "                Toast.makeText(MainActivity.this, \"\"+ratingBar.getRating(), Toast.LENGTH_SHORT).show();\n" +
+                "            }\n" +
+                "        });\n" +
+                "    }","<RatingBar\n" +
+                "        android:layout_width=\"wrap_content\"\n" +
+                "        android:id=\"@+id/ratingBar\"\n" +
+                "        android:numStars=\"5\"\n" +
+                "        android:stepSize=\".25\"\n" +
+                "        android:layout_height=\"wrap_content\" />\n" +
+                "\n" +
+                "    <Button\n" +
+                "        android:layout_below=\"@id/ratingBar\"\n" +
+                "        android:layout_width=\"wrap_content\"\n" +
+                "        android:text=\"Click Me\"\n" +
+                "        android:layout_centerHorizontal=\"true\"\n" +
+                "        android:id=\"@+id/btn\"\n" +
+                "        android:layout_height=\"wrap_content\" />"));
         dataArrayListSource.add(new Data("RadioButton","Radio buttons allow the user to select one option from a set.",R.drawable.menu,"@Override\n" +
                 "    protected void onCreate(Bundle savedInstanceState) {\n" +
                 "        super.onCreate(savedInstanceState);\n" +
@@ -353,7 +458,7 @@ public class MainActivity extends AppCompatActivity {
                 "        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {\n" +
                 "            @Override\n" +
                 "            public void onCheckedChanged(RadioGroup group, int checkedId) {\n" +
-                "                switch(checkedId){\n" +
+                "                sw(checkedId){\n" +
                 "\n" +
                 "                    case R.id.radioButton1:\n" +
                 "                        Toast.makeText(Main2Activity.this, \"1\", Toast.LENGTH_SHORT).show();\n" +

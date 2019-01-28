@@ -35,7 +35,6 @@ public class LifecycleActivity extends AppCompatActivity {
         // Assign the page transformer to the ViewPager.
         viewPager.setPageTransformer(true, bookFlipPageTransformer);
 
-        Data data = (Data) getIntent().getParcelableExtra("newProject");
     }
 
     private class GoThroughAdapter extends FragmentPagerAdapter {

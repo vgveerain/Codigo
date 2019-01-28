@@ -60,6 +60,22 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                    intent.putExtra("textview",d);
                    context.startActivity(intent);
                 }
+                else if (d.getName()=="What is Android") {
+                    Intent intent = new Intent(context,Android.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
+                    intent.putExtra("android",d);
+                    context.startActivity(intent);
+                }
+                else if (d.getName() == "Application Components") {
+                    Intent intent = new Intent(context,Components.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
+                    intent.putExtra("components",d);
+                    context.startActivity(intent);
+                }
                 else if(d.getName()=="Button"){
                     Intent intent= new Intent(context,buttonV2.class);
                     d.progress=true;

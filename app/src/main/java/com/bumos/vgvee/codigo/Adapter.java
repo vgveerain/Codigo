@@ -12,7 +12,9 @@ import android.widget.DatePicker;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.squareup.picasso.Picasso;
 
@@ -66,7 +68,41 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     intent.putExtra("button",d);
                     context.startActivity(intent);
 
-                } else if(d.getName()=="SnackBar"){
+                } else if(d.getName()=="Spinner"){
+                    Intent intent= new Intent(context,SpinnerActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
+                    intent.putExtra("spinner",d);
+                    context.startActivity(intent);
+
+                }
+                else if(d.getName()=="SeekBar"){
+                    Intent intent= new Intent(context,SeekBarActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
+                    intent.putExtra("seekbar",d);
+                    context.startActivity(intent);
+
+                } else if(d.getName()=="RatingBar"){
+                    Intent intent= new Intent(context, RatingBarActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
+                    intent.putExtra("ratingbar",d);
+                    context.startActivity(intent);
+
+                } else if(d.getName()=="Switch"){
+                    Intent intent= new Intent(context, SwitchActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
+                    intent.putExtra("sw",d);
+                    context.startActivity(intent);
+
+                }
+                else if(d.getName()=="SnackBar"){
                     Intent intent= new Intent(context,SnackBarActivity.class);
                     d.progress=true;
                     d.setProgress(true);
@@ -74,7 +110,16 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     intent.putExtra("snackbar",d);
                     context.startActivity(intent);
 
-                } else if(d.getName()=="RadioButton"){
+                } else if(d.getName()=="TimePicker"){
+                    Intent intent= new Intent(context, TimePickerActivity.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAG",""+d.progress);
+                    intent.putExtra("timepicker",d);
+                    context.startActivity(intent);
+
+                }
+                else if(d.getName()=="RadioButton"){
                     Intent intent= new Intent(context,RadioButtonActivity.class);
                     d.progress=true;
                     d.setProgress(true);

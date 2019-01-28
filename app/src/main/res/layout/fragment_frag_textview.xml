@@ -67,7 +67,7 @@
                 android:textStyle="bold"
                 android:layout_margin="5dp"
                 android:gravity="center"
-                android:text="This is an exampe of TextView" />
+                android:text="This is an example of TextView" />
 
         </LinearLayout>
     </ScrollView>

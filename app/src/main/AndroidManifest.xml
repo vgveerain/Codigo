@@ -14,9 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Components"/>
+        <activity android:name=".ViewGrid"></activity>
+        <activity android:name=".LayoutLinear" />
+        <activity android:name=".LayoutRelative" />
+        <activity android:name=".LayoutType" />
+        <activity
+            android:name=".WhyAndroid"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/MyTheme" />
+        <activity android:name=".Components" />
         <activity android:name=".Android" />
-        <activity android:name=".TimePickerActivity"/>
+        <activity android:name=".TimePickerActivity" />
         <activity
             android:name=".SwitchActivity"
             android:parentActivityName=".MainActivity"

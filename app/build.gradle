@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.bumos.vgvee.codigo"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -40,6 +40,13 @@ dependencies {
     implementation 'com.github.HaarigerHarald:android-youtubeExtractor:v1.7.0'
     implementation 'com.wajahatkarim3.easyflipviewpager:easyflipviewpager:1.0.0'
     implementation 'com.github.tiagohm:CodeView:0.4.0'
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3'
+//    implementation 'me.relex:circleindicator:2.1.0'
 }
+
+// Temporary fix until alpha10
+//packagingOptions {
+//    exclude 'META-INF/proguard/androidx-annotations.pro'
+//}
 
 apply plugin: 'com.google.gms.google-services'

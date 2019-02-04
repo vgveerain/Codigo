@@ -3,4 +3,5 @@
     <color name="colorPrimary">#efefef</color>
     <color name="colorPrimaryDark">#efefef</color>
     <color name="colorAccent">#a8a8a8</color>
+    <color name="mediaBackground">#121212</color>
 </resources>

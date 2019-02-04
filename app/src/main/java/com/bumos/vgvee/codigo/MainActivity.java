@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Seriously? WTH Shubham!
         dataArrayListSource.add(new Data("What is Android","Android is a software package and linux based operating system for mobile devices such as tablet computers and smart phones.",R.drawable.and_icon));
+        dataArrayListSource.add(new Data("Why Android","Android has dominated the global smart phone operating system market share for several years now.",R.drawable.why_icon));
         dataArrayListSource.add(new Data("New Project","Creating a new android project", R.drawable.training));
         dataArrayListSource.add(new Data("Application Components","Application components are the essential building blocks of an Android application.",R.drawable.component_icon));
         dataArrayListSource.add(new Data("Activity LifeCycle","Understanding the lifecycle of an android application", R.drawable.synchronize));
@@ -171,6 +172,57 @@ public class MainActivity extends AppCompatActivity {
                 "        android:textSize=\"32sp\"\n" +
                 "        android:id=\"@+id/editText\"\n" +
                 "        android:layout_height=\"wrap_content\" />\n\n\n\n"));
+        dataArrayListSource.add(new Data("What is a Layout","A layout defines the visual structure for a user interface, such as the UI for an activity or app widget.",R.drawable.layout_icon));
+        dataArrayListSource.add(new Data("Relative Layout","Relative Layout is a view group that displays child views in relative positions",R.drawable.relative_icon,null,"  <RelativeLayout\n" +
+                "        android:layout_width=\"wrap_content\"\n" +
+                "        android:layout_height=\"wrap_content\"\n" +
+                "        android:layout_margin=\"10dp\"\n" +
+                "        >\n" +
+                "\n" +
+                "        <EditText\n" +
+                "            android:id=\"@+id/name\"\n" +
+                "            android:layout_width=\"fill_parent\"\n" +
+                "            android:layout_height=\"wrap_content\"\n" +
+                "            android:hint=\"reminder\"\n" +
+                "            android:layout_margin=\"10dp\"\n" +
+                "            />\n" +
+                "\n" +
+                "        <Button\n" +
+                "            android:layout_width=\"100dp\"\n" +
+                "            android:layout_height=\"wrap_content\"\n" +
+                "            android:layout_below=\"@id/name\"\n" +
+                "            android:layout_margin=\"10dp\"\n" +
+                "            android:layout_alignParentRight=\"true\"\n" +
+                "            android:text=\"done\" />\n" +
+                "\n" +
+                "    </RelativeLayout>"));
+        dataArrayListSource.add(new Data("Linear Layout","LinearLayout is a view group that aligns all children in a single direction, vertically or horizontally.",R.drawable.layout_icon,null,"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                "<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n" +
+                "    android:layout_width=\"fill_parent\"\n" +
+                "    android:layout_height=\"fill_parent\"\n" +
+                "    android:paddingLeft=\"16dp\"\n" +
+                "    android:paddingRight=\"16dp\"\n" +
+                "    android:orientation=\"vertical\" >\n" +
+                "    <EditText\n" +
+                "        android:layout_width=\"fill_parent\"\n" +
+                "        android:layout_height=\"wrap_content\"\n" +
+                "        android:hint=\"@string/to\" />\n" +
+                "    <EditText\n" +
+                "        android:layout_width=\"fill_parent\"\n" +
+                "        android:layout_height=\"wrap_content\"\n" +
+                "        android:hint=\"@string/subject\" />\n" +
+                "    <EditText\n" +
+                "        android:layout_width=\"fill_parent\"\n" +
+                "        android:layout_height=\"0dp\"\n" +
+                "        android:layout_weight=\"1\"\n" +
+                "        android:gravity=\"top\"\n" +
+                "        android:hint=\"@string/message\" />\n" +
+                "    <Button\n" +
+                "        android:layout_width=\"100dp\"\n" +
+                "        android:layout_height=\"wrap_content\"\n" +
+                "        android:layout_gravity=\"right\"\n" +
+                "        android:text=\"@string/send\" />\n" +
+                "</LinearLayout>"));
         dataArrayListSource.add(new Data("ImageView","A user Interface to display Image files",R.drawable.gallery,"@Override\n" +
                 "    protected void onCreate(Bundle savedInstanceState) {\n" +
                 "        super.onCreate(savedInstanceState);\n" +
@@ -198,7 +250,30 @@ public class MainActivity extends AppCompatActivity {
                 "        android:id=\"@+id/button\"\n" +
                 "        android:layout_height=\"wrap_content\" />\n\n\n\n"));
 
-
+        dataArrayListSource.add(new Data("Grid View","GridView is a ViewGroup that displays items in a two-dimensional, scrollable grid.",R.drawable.grid_icon,"public void onCreate(Bundle savedInstanceState) {\n" +
+                "    super.onCreate(savedInstanceState);\n" +
+                "    setContentView(R.layout.main);\n" +
+                "\n" +
+                "    GridView gridview = (GridView) findViewById(R.id.gridview);\n" +
+                "    gridview.setAdapter(new ImageAdapter(this));\n" +
+                "\n" +
+                "    gridview.setOnItemClickListener(new OnItemClickListener() {\n" +
+                "        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {\n" +
+                "            Toast.makeText(HelloGridView.this, \"\" + position, Toast.LENGTH_SHORT).show();\n" +
+                "        }\n" +
+                "    });\n" +
+                "}","<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                "<GridView xmlns:android=\"http://schemas.android.com/apk/res/android\" \n" +
+                "    android:id=\"@+id/gridview\"\n" +
+                "    android:layout_width=\"fill_parent\" \n" +
+                "    android:layout_height=\"fill_parent\"\n" +
+                "    android:columnWidth=\"90dp\"\n" +
+                "    android:numColumns=\"auto_fit\"\n" +
+                "    android:verticalSpacing=\"10dp\"\n" +
+                "    android:horizontalSpacing=\"10dp\"\n" +
+                "    android:stretchMode=\"columnWidth\"\n" +
+                "    android:gravity=\"center\"\n" +
+                "/>"));
         dataArrayListSource.add(new Data("Basic Calculator","Building a calculator using the components discussed so far.",R.drawable.math,"@Override\n" +
                 "    protected void onCreate(Bundle savedInstanceState) {\n" +
                 "        super.onCreate(savedInstanceState);\n" +

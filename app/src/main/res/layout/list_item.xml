@@ -22,12 +22,10 @@
         android:layout_height="120dp">
 
         <ImageView
-            android:layout_marginTop="4dp"
             android:id="@+id/androidImage"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="2dp"
-            android:layout_margin="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="15dp"
             />
         <LinearLayout
             android:layout_width="match_parent"

@@ -68,6 +68,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     intent.putExtra("android",d);
                     context.startActivity(intent);
                 }
+                else if (d.getName()=="Why Android") {
+                    Intent intent = new Intent(context,WhyAndroid.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
+                    context.startActivity(intent);
+                }
+                else if (d.getName()=="What is a Layout") {
+                    Intent intent = new Intent(context,LayoutType.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
+                    context.startActivity(intent);
+                }
                 else if (d.getName() == "Application Components") {
                     Intent intent = new Intent(context,Components.class);
                     d.progress=true;
@@ -84,7 +98,35 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     intent.putExtra("button",d);
                     context.startActivity(intent);
 
-                } else if(d.getName()=="Spinner"){
+                }
+                else if(d.getName()=="Relative Layout"){
+                    Intent intent= new Intent(context,LayoutRelative.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
+                    intent.putExtra("relative",d);
+                    context.startActivity(intent);
+
+                }
+                else if(d.getName()=="Linear Layout"){
+                    Intent intent= new Intent(context,LayoutLinear.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
+                    intent.putExtra("linear",d);
+                    context.startActivity(intent);
+
+                }
+                else if(d.getName()=="Grid View"){
+                    Intent intent= new Intent(context,ViewGrid.class);
+                    d.progress=true;
+                    d.setProgress(true);
+                    Log.e("TAGadapter",""+d.progress);
+                    intent.putExtra("grid",d);
+                    context.startActivity(intent);
+
+                }
+                else if(d.getName()=="Spinner"){
                     Intent intent= new Intent(context,SpinnerActivity.class);
                     d.progress=true;
                     d.setProgress(true);

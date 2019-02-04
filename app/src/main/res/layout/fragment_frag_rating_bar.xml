@@ -5,7 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragRatingBar">
+    tools:context=".FragRatingBar"
+    android:padding="30dp"
+    android:background="@drawable/book_fragment_background"
+    >
 
     <TextView
         android:layout_width="match_parent"

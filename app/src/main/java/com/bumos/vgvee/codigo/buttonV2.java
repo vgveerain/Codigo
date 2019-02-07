@@ -9,12 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer;
 
 public class buttonV2 extends AppCompatActivity {
 
     ViewPager viewPager;
     Bundle bundle;
+    DotsIndicator dotsIndicator;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,9 @@ public class buttonV2 extends AppCompatActivity {
 
         // Assign the page transformer to the ViewPager.
         viewPager.setPageTransformer(true, bookFlipPageTransformer);
+        dotsIndicator = findViewById(R.id.dots_indicator);
+        dotsIndicator.setViewPager(viewPager);
+
 
         Data data = (Data) getIntent().getParcelableExtra("button");
         Log.e("TAG", ""+data.getJava());

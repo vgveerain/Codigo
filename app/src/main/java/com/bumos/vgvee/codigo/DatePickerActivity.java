@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer;
 
 import java.util.Calendar;
@@ -21,6 +22,7 @@ public class DatePickerActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     Bundle bundle;
+    DotsIndicator dotsIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class DatePickerActivity extends AppCompatActivity {
 
         // Assign the page transformer to the ViewPager.
         viewPager.setPageTransformer(true, bookFlipPageTransformer);
+        dotsIndicator = findViewById(R.id.dots_indicator);
+        dotsIndicator.setViewPager(viewPager);
         Data d = getIntent().getParcelableExtra("datepicker");
     }
 

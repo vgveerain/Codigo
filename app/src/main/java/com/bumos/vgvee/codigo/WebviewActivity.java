@@ -14,12 +14,15 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer;
 
 public class WebviewActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     Bundle bundle;
+    DotsIndicator dotsIndicator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,9 @@ public class WebviewActivity extends AppCompatActivity {
 
         // Assign the page transformer to the ViewPager.
         viewPager.setPageTransformer(true, bookFlipPageTransformer);
+        dotsIndicator = findViewById(R.id.dots_indicator);
+        dotsIndicator.setViewPager(viewPager);
+
         Data data = (Data) getIntent().getParcelableExtra("webview");
         Log.e("TAG", ""+data.getJava());
         Log.e("TAG", ""+data.desc);

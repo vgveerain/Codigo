@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer;
 
 public class RadioButtonActivity extends AppCompatActivity {
@@ -22,6 +23,8 @@ public class RadioButtonActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     Bundle bundle;
+    DotsIndicator dotsIndicator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,8 @@ public class RadioButtonActivity extends AppCompatActivity {
 
         // Assign the page transformer to the ViewPager.
         viewPager.setPageTransformer(true, bookFlipPageTransformer);
+        dotsIndicator = findViewById(R.id.dots_indicator);
+        dotsIndicator.setViewPager(viewPager);
 
         Data data = (Data) getIntent().getParcelableExtra("radiobutton");
         Log.e("TAG", "" + data.getJava());

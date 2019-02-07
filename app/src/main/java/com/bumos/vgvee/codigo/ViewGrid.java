@@ -7,12 +7,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer;
 
 public class ViewGrid extends AppCompatActivity {
 
     ViewPager viewPager;
     Bundle bundle;
+    DotsIndicator dotsIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class ViewGrid extends AppCompatActivity {
 
         // Assign the page transformer to the ViewPager.
         viewPager.setPageTransformer(true, bookFlipPageTransformer);
+        dotsIndicator = findViewById(R.id.dots_indicator);
+        dotsIndicator.setViewPager(viewPager);
 
     }
 

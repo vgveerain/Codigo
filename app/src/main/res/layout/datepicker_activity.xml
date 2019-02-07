@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,5 +13,20 @@
         android:id="@+id/viewPager">
 
     </android.support.v4.view.ViewPager>
+    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+        android:id="@+id/dots_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dotsColor="#999999"
+        app:dotsCornerRadius="8dp"
+        app:dotsSize="8dp"
+        app:dotsSpacing="1dp"
+        app:dotsWidthFactor="2.0"
+        app:selectedDotColor="#666666"
+        app:progressMode="true"
+        android:layout_gravity="top|right"
+        android:paddingTop="30dp"
+        android:paddingRight="30dp"
+        />
 
-</RelativeLayout>
+</FrameLayout>

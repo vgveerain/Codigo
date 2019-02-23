@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -27,6 +28,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -36,6 +39,7 @@ public class ProfileActivity extends AppCompatActivity {
     ImageView imageView;
     ImageButton button;
     TextView textView,textView2;
+    public static final int PICK_IMAGE = 1;
     private static final int RequestCode= 123;
 
 
@@ -95,9 +99,10 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                if (ContextCompat.checkSelfPermission(ProfileActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)+ContextCompat.checkSelfPermission(ProfileActivity.this,Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(ProfileActivity.this, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, RequestCode);
-                    ActivityCompat.requestPermissions(ProfileActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, RequestCode);
+                if (ActivityCompat.checkSelfPermission(ProfileActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+//                    ActivityCompat.requestPermissions(ProfileActivity.this, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, RequestCode);
+//                    ActivityCompat.requestPermissions(ProfileActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, RequestCode);
+                    ActivityCompat.requestPermissions(ProfileActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, RequestCode);
                 } else {
                     pickImage();
                 }
@@ -107,32 +112,53 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
     public void pickImage() {
-        Intent intent = new Intent(Intent.ACTION_PICK,
-                MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+//        Intent intent = new Intent(Intent.ACTION_PICK,
+//                MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+//        intent.setType("image/*");
+//        intent.putExtra("crop", "true");
+//        intent.putExtra("scale", true);
+//        intent.putExtra("outputX", 256);
+//        intent.putExtra("outputY", 256);
+//        intent.putExtra("aspectX", 1);
+//        intent.putExtra("aspectY", 1);
+//        intent.putExtra("return-data", true);
+//        startActivityForResult(intent, 1);
+        Intent intent = new Intent();
         intent.setType("image/*");
-        intent.putExtra("crop", "true");
-        intent.putExtra("scale", true);
-        intent.putExtra("outputX", 256);
-        intent.putExtra("outputY", 256);
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-        intent.putExtra("return-data", true);
-        startActivityForResult(intent, 1);
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
+
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-        if (resultCode != RESULT_OK) {
-            return;
-        }
+        super.onActivityResult(requestCode, resultCode, data);
+//        if (resultCode != PICK_IMAGE) {
+//            Log.e("PICK not","requestCode="+requestCode+" resut code="+resultCode);
+//            return;
+//        }
         if (requestCode == 1) {
-            final Bundle extras = data.getExtras();
-            if (extras != null) {
-                //Get image
-                Bitmap newProfilePic = extras.getParcelable("data");
-                imageView.setImageBitmap(newProfilePic);
+//            final Bundle extras = data.getExtras();
+            Log.e("PICK","Image");
+            Uri contentURI = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
+//                String path = saveImage(bitmap);
+                Toast.makeText(ProfileActivity.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+                imageView.setImageBitmap(bitmap);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(ProfileActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
             }
+//            if (extras != null) {
+//                //Get image
+//                Log.e("Bundle","not null");
+//                Bitmap newProfilePic = extras.getParcelable("data");
+//                imageView.setImageBitmap(newProfilePic);
+//            }
         }
     }
 

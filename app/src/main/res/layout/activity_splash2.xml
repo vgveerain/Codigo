@@ -9,8 +9,8 @@
         android:layout_height="0dp"
         android:layout_weight="2">
         <ImageView
-            android:layout_width="240dp"
-            android:layout_height="210dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:src="@drawable/codigo"
             android:layout_centerInParent="true"
             android:scaleType="centerInside"
@@ -22,10 +22,10 @@
         android:layout_height="0dp"
         android:layout_weight="1">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="210dp"
+            android:layout_height="130dp"
             android:layout_centerInParent="true"
-            android:scaleType="center"
+            android:scaleType="fitXY"
             android:src="@drawable/splashtext" />
     </RelativeLayout>
 

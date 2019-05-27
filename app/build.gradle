@@ -41,6 +41,9 @@ dependencies {
     implementation 'com.wajahatkarim3.easyflipviewpager:easyflipviewpager:1.0.0'
     implementation 'com.github.tiagohm:CodeView:0.4.0'
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3'
+
+    implementation 'com.google.android.gms:play-services-wallet:16.0.0'
+//    implementation 'com.android.support:appcompat-v7:24.1.1
 //    implementation 'me.relex:circleindicator:2.1.0'
 }
 

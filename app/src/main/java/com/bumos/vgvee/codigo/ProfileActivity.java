@@ -17,6 +17,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +39,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView percentProgress;
     ProgressBar progressBar;
     ImageView imageView;
+    Button goPro;
     ImageButton button;
     TextView textView,textView2;
     public static final int PICK_IMAGE = 1;
@@ -49,12 +52,40 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.profile_activity);
         int progress = getIntent().getExtras().getInt("progress");
 
+        goPro = findViewById(R.id.gopro);
+
         imageView = findViewById(R.id.profileIV);
         progressBar = findViewById(R.id.progressBar);
         percentProgress = findViewById(R.id.percentProgress);
         button = findViewById(R.id.edit);
         textView =findViewById(R.id.personName);
         textView2 = findViewById(R.id.personEmail);
+
+        String GOOGLE_PAY_PACKAGE_NAME = "com.google.android.apps.nbu.paisa.user";
+        int GOOGLE_PAY_REQUEST_CODE = 123;
+
+        Uri uri =
+                new Uri.Builder()
+                        .scheme("upi")
+                        .authority("pay")
+                        .appendQueryParameter("pa", "your-merchant-vpa@xxx")
+                        .appendQueryParameter("pn", "your-merchant-name")
+                        .appendQueryParameter("mc", "your-merchant-code")
+                        .appendQueryParameter("tr", "your-transaction-ref-id")
+                        .appendQueryParameter("tn", "your-transaction-note")
+                        .appendQueryParameter("am", "your-transaction-amount")
+                        .appendQueryParameter("cu", "INR")
+                        .appendQueryParameter("url", "your-transaction-url")
+                        .build();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(uri);
+        intent.setPackage(GOOGLE_PAY_PACKAGE_NAME);
+        goPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityForResult(intent, GOOGLE_PAY_REQUEST_CODE);
+            }
+        });
 
         final View alertView = LayoutInflater.from(ProfileActivity.this).inflate(R.layout.dialog_layout, null, true);
         final AlertDialog alertDialog = new AlertDialog.Builder(this)
